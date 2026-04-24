@@ -47,63 +47,33 @@
       padding: 3px 14px; border-radius: 20px; font-size: 13px; font-weight: 700;
     }
     #kategori-wrapper {
-      position: fixed;
-      bottom: 16px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 92vw;
-      max-width: 460px;
-      background: rgba(0,0,0,0.65);
-      border-radius: 20px;
-      padding: 10px 8px;
-      display: none;
-      z-index: 9999;
-      backdrop-filter: blur(6px);
+      position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%);
+      width: 92vw; max-width: 460px;
+      background: rgba(0,0,0,0.65); border-radius: 20px; padding: 10px 8px;
+      display: none; z-index: 9999; backdrop-filter: blur(6px);
       border: 1px solid rgba(255,255,255,0.15);
     }
     #kategori-menu {
-      display: flex;
-      flex-direction: row;
-      gap: 8px;
-      overflow-x: auto;
-      scrollbar-width: none;
-      padding: 0 4px;
-    } 
-
+      display: flex; flex-direction: row; gap: 6px;
+      overflow-x: auto; scrollbar-width: none; padding: 0 4px;
+    }
     #kategori-menu::-webkit-scrollbar { display: none; }
-
     .kategori-btn {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      padding: 8px 10px;
-      border-radius: 12px;
+      display: flex; flex-direction: column; align-items: center; gap: 4px;
+      padding: 8px 0; border-radius: 12px;
       border: 1.5px solid rgba(255,255,255,0.2);
-      background: rgba(255,255,255,0.06);
-      color: rgba(255,255,255,0.8);
-      font-size: 9px;
-      cursor: pointer;
-      white-space: nowrap;
-      flex-shrink: 0;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.8);
+      font-size: 9px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px;
+      flex-shrink: 0; width: 68px; min-width: 68px;
+      white-space: normal; text-align: center; line-height: 1.2;
     }
-
     .kategori-btn img {
-      width: 32px;
-      height: 32px;
-      object-fit: contain;
-      filter: brightness(0) invert(1);
-      opacity: 0.7;
+      width: 32px; height: 32px; object-fit: contain;
+      filter: brightness(0) invert(1); opacity: 0.7;
     }
-
     .kategori-btn.aktif {
-      background: rgba(232,201,109,0.2);
-      border-color: #e8c96d;
-      color: #e8c96d;
+      background: rgba(232,201,109,0.2); border-color: #e8c96d; color: #e8c96d;
     }
-
     .kategori-btn.aktif img {
       filter: brightness(0) saturate(100%) invert(82%) sepia(30%) saturate(600%) hue-rotate(5deg);
       opacity: 1;
@@ -144,9 +114,14 @@
           <a-gltf-model src="./models/serpme_kahvalti.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
         </a-entity>
       </a-entity>
-      <a-entity id="omlet" class="model-container" visible="false" rotation="90 0 0">
+      <a-entity id="senin_kahvaltin" class="model-container" visible="false" rotation="90 0 0">
         <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
-          <a-gltf-model src="./models/omlet.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+          <a-gltf-model src="./models/senin_kahvaltin.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="peynir_tabagi" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/peynir_tabagi.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
         </a-entity>
       </a-entity>
       <a-entity id="menemen" class="model-container" visible="false" rotation="90 0 0">
@@ -159,9 +134,9 @@
           <a-gltf-model src="./models/sucuklu_yumurta.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
         </a-entity>
       </a-entity>
-      <a-entity id="peynir_tabagi" class="model-container" visible="false" rotation="90 0 0">
+      <a-entity id="omlet" class="model-container" visible="false" rotation="90 0 0">
         <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
-          <a-gltf-model src="./models/peynir_tabagi.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+          <a-gltf-model src="./models/omlet.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
         </a-entity>
       </a-entity>
       <a-entity id="sucuk_tava" class="model-container" visible="false" rotation="90 0 0">
@@ -174,9 +149,31 @@
           <a-gltf-model src="./models/soslu_sosis.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
         </a-entity>
       </a-entity>
-      <a-entity id="senin_kahvaltin" class="model-container" visible="false" rotation="90 0 0">
+
+      <!-- TOST -->
+      <a-entity id="lima_tost" class="model-container" visible="false" rotation="90 0 0">
         <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
-          <a-gltf-model src="./models/senin_kahvaltin.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+          <a-gltf-model src="./models/lima_tost.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="kasarli_tost" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/kasarli_tost.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="sucuklu_tost" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/sucuklu_tost.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="sebzeli_tost" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/sebzeli_tost.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="karisik_tost" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/karisik_tost.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
         </a-entity>
       </a-entity>
 
@@ -196,19 +193,63 @@
           <a-gltf-model src="./models/parmak_patates.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
         </a-entity>
       </a-entity>
-      <a-entity id="lima_tost" class="model-container" visible="false" rotation="90 0 0">
+
+      <!-- SALATA -->
+      <a-entity id="ton_balikli_salata" class="model-container" visible="false" rotation="90 0 0">
         <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
-          <a-gltf-model src="./models/lima_tost.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+          <a-gltf-model src="./models/ton_balikli_salata.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
         </a-entity>
       </a-entity>
-      <a-entity id="karisik_tost" class="model-container" visible="false" rotation="90 0 0">
+      <a-entity id="mevsim_salata" class="model-container" visible="false" rotation="90 0 0">
         <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
-          <a-gltf-model src="./models/karisik_tost.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+          <a-gltf-model src="./models/mevsim_salata.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
         </a-entity>
       </a-entity>
-      <a-entity id="sebzeli_tost" class="model-container" visible="false" rotation="90 0 0">
+      <a-entity id="sezar_salata" class="model-container" visible="false" rotation="90 0 0">
         <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
-          <a-gltf-model src="./models/sebzeli_tost.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+          <a-gltf-model src="./models/sezar_salata.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+
+      <!-- HIZLI VE LEZZETLİ -->
+      <a-entity id="kofte_wrap" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/kofte_wrap.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="citir_tavuk_wrap" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/citir_tavuk_wrap.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="mantarli_tavuk_wrap" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/mantarli_tavuk_wrap.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="cheddarli_et_wrap" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/cheddarli_et_wrap.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="tavuk_quesadilla" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/tavuk_quesadilla.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="etli_quesadilla" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/etli_quesadilla.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="citir_tavuk" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/citir_tavuk.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="soslu_manti" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/soslu_manti.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
         </a-entity>
       </a-entity>
 
@@ -246,6 +287,38 @@
       <a-entity id="chilly_honey_burger" class="model-container" visible="false" rotation="90 0 0">
         <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
           <a-gltf-model src="./models/chilly_honey_burger.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+
+      <!-- MAKARNA -->
+      <a-entity id="fettuccine_alfredo" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/fettuccine_alfredo.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="kori_tavuklu_penne" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/kori_tavuklu_penne.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="tavuklu_noodle" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/tavuklu_noodle.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="etli_noodle" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/etli_noodle.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="sebzeli_noodle" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/sebzeli_noodle.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="penne_arabiata" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/penne_arabiata.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
         </a-entity>
       </a-entity>
 
@@ -481,71 +554,58 @@
     <div id="urun-fiyat"></div>
   </div>
 
-<div id="kategori-wrapper">
-  <div id="kategori-menu">
-
-    <button class="kategori-btn aktif" onclick="kategoriSec(this, 'kahvalti')">
-      <img src="https://limashore.com/wp-content/uploads/2022/04/vfssf.png" alt="">
-      <span>Güne Başlarken</span>
-    </button>
-
-    <button class="kategori-btn" onclick="kategoriSec(this, 'tost')">
-      <img src="https://limashore.com/wp-content/uploads/2023/04/toas.png" alt="">
-      <span>Tost</span>
-    </button>
-
-    <button class="kategori-btn" onclick="kategoriSec(this, 'atistirmalik')">
-      <img src="https://limashore.com/wp-content/uploads/2022/04/patatess.png" alt="">
-      <span>Atıştırmalık</span>
-    </button>
-
-    <button class="kategori-btn" onclick="kategoriSec(this, 'salata')">
-      <img src="https://limashore.com/wp-content/uploads/2022/04/sadgyh.png" alt="">
-      <span>Salata</span>
-    </button>
-
-    <button class="kategori-btn" onclick="kategoriSec(this, 'hizli')">
-      <img src="https://limashore.com/wp-content/uploads/2022/04/hzlla.png" alt="">
-      <span>Hızlı Lezzetli</span>
-    </button>
-
-    <button class="kategori-btn" onclick="kategoriSec(this, 'burger')">
-      <img src="https://limashore.com/wp-content/uploads/2022/04/nb.png" alt="">
-      <span>Burger</span>
-    </button>
-
-    <button class="kategori-btn" onclick="kategoriSec(this, 'makarna')">
-      <img src="https://limashore.com/wp-content/uploads/2022/04/makar.png" alt="">
-      <span>Makarna</span>
-    </button>
-
-    <button class="kategori-btn" onclick="kategoriSec(this, 'pizza')">
-      <img src="https://limashore.com/wp-content/uploads/2022/04/pizzaaa.png" alt="">
-      <span>Pizza</span>
-    </button>
-
-    <button class="kategori-btn" onclick="kategoriSec(this, 'et')">
-      <img src="https://limashore.com/wp-content/uploads/2022/04/sdfrdf.png" alt="">
-      <span>Et</span>
-    </button>
-
-    <button class="kategori-btn" onclick="kategoriSec(this, 'tavuk')">
-      <img src="https://limashore.com/wp-content/uploads/2022/04/tavuuk.png" alt="">
-      <span>Tavuk</span>
-    </button>
-
-    <button class="kategori-btn" onclick="kategoriSec(this, 'tatlilar')">
-      <img src="https://limashore.com/wp-content/uploads/2022/04/tatl.png" alt="">
-      <span>Tatlılar</span>
-    </button>
-
-    <button class="kategori-btn" onclick="kategoriSec(this, 'icecekler')">
-      <img src="https://limashore.com/wp-content/uploads/2022/04/icci.png" alt="">
-      <span>İçecekler</span>
-    </button>
-
+  <div id="kategori-wrapper">
+    <div id="kategori-menu">
+      <button class="kategori-btn aktif" onclick="kategoriSec(this, 'kahvalti')">
+        <img src="https://limashore.com/wp-content/uploads/2022/04/vfssf.png" alt="">
+        <span>Güne Başlarken</span>
+      </button>
+      <button class="kategori-btn" onclick="kategoriSec(this, 'tost')">
+        <img src="https://limashore.com/wp-content/uploads/2023/04/toas.png" alt="">
+        <span>Tost</span>
+      </button>
+      <button class="kategori-btn" onclick="kategoriSec(this, 'atistirmalik')">
+        <img src="https://limashore.com/wp-content/uploads/2022/04/patatess.png" alt="">
+        <span>Atıştırmalık</span>
+      </button>
+      <button class="kategori-btn" onclick="kategoriSec(this, 'salata')">
+        <img src="https://limashore.com/wp-content/uploads/2022/04/sadgyh.png" alt="">
+        <span>Salata</span>
+      </button>
+      <button class="kategori-btn" onclick="kategoriSec(this, 'hizli')">
+        <img src="https://limashore.com/wp-content/uploads/2022/04/hzlla.png" alt="">
+        <span>Hızlı Lezzetli</span>
+      </button>
+      <button class="kategori-btn" onclick="kategoriSec(this, 'burger')">
+        <img src="https://limashore.com/wp-content/uploads/2022/04/nb.png" alt="">
+        <span>Burger</span>
+      </button>
+      <button class="kategori-btn" onclick="kategoriSec(this, 'makarna')">
+        <img src="https://limashore.com/wp-content/uploads/2022/04/makar.png" alt="">
+        <span>Makarna</span>
+      </button>
+      <button class="kategori-btn" onclick="kategoriSec(this, 'pizza')">
+        <img src="https://limashore.com/wp-content/uploads/2022/04/pizzaaa.png" alt="">
+        <span>Pizza</span>
+      </button>
+      <button class="kategori-btn" onclick="kategoriSec(this, 'et')">
+        <img src="https://limashore.com/wp-content/uploads/2022/04/sdfrdf.png" alt="">
+        <span>Et</span>
+      </button>
+      <button class="kategori-btn" onclick="kategoriSec(this, 'tavuk')">
+        <img src="https://limashore.com/wp-content/uploads/2022/04/tavuuk.png" alt="">
+        <span>Tavuk</span>
+      </button>
+      <button class="kategori-btn" onclick="kategoriSec(this, 'tatlilar')">
+        <img src="https://limashore.com/wp-content/uploads/2022/04/tatl.png" alt="">
+        <span>Tatlılar</span>
+      </button>
+      <button class="kategori-btn" onclick="kategoriSec(this, 'icecekler')">
+        <img src="https://limashore.com/wp-content/uploads/2022/04/icci.png" alt="">
+        <span>İçecekler</span>
+      </button>
+    </div>
   </div>
-</div>
 
   <div id="info-modal">
     <h2 id="modal-adi"></h2>
@@ -569,13 +629,32 @@
         { containerId: 'sucuk_tava', ad: 'Sucuk Tava', fiyat: '250 ₺', icerik: 'Dana sucuk' },
         { containerId: 'soslu_sosis', ad: 'Soslu Sosis', fiyat: '200 ₺', icerik: 'Sosis, özel sos' },
       ],
+      tost: [
+        { containerId: 'lima_tost', ad: 'Lima Özel Tost', fiyat: '390 ₺', icerik: 'Sucuk, sosis, mantar, kırmızı biber, alman turşusu' },
+        { containerId: 'kasarli_tost', ad: 'Kaşarlı Tost', fiyat: '360 ₺', icerik: 'Kaşar peyniri' },
+        { containerId: 'sucuklu_tost', ad: 'Sucuklu Tost', fiyat: '380 ₺', icerik: 'Kaşar, sucuk' },
+        { containerId: 'sebzeli_tost', ad: 'Sebzeli Tost', fiyat: '360 ₺', icerik: 'Yeşil biber, kırmızı biber, mısır, mantar, siyah zeytin, kaşar' },
+        { containerId: 'karisik_tost', ad: 'Karışık Tost', fiyat: '390 ₺', icerik: 'Sucuk, kaşar, domates, alman turşusu, ketçap' },
+      ],
       atistirmalik: [
         { containerId: 'kombo_tabagi', ad: 'Kombo Tabağı', fiyat: '460 ₺', icerik: 'Parmak patates, soğan halkası, çıtır tavuk, sosis, stick mozarella, sebzeli muska, Lima özel sos (2-3 kişilik)' },
         { containerId: 'cheddarly_patates', ad: 'Cheddarlı Patates', fiyat: '370 ₺', icerik: 'Parmak patates, cheddar sos' },
         { containerId: 'parmak_patates', ad: 'Parmak Patates', fiyat: '280 ₺', icerik: 'Çıtır parmak patates' },
-        { containerId: 'lima_tost', ad: 'Lima Özel Tost', fiyat: '390 ₺', icerik: 'Sucuk, sosis, mantar, kırmızı biber, alman turşusu' },
-        { containerId: 'karisik_tost', ad: 'Karışık Tost', fiyat: '390 ₺', icerik: 'Sucuk, kaşar, domates, alman turşusu, ketçap' },
-        { containerId: 'sebzeli_tost', ad: 'Sebzeli Tost', fiyat: '360 ₺', icerik: 'Yeşil biber, kırmızı biber, mısır, mantar, siyah zeytin, kaşar' },
+      ],
+      salata: [
+        { containerId: 'ton_balikli_salata', ad: 'Ton Balıklı Salata', fiyat: '440 ₺', icerik: 'Ton balığı, mix yeşillik, domates, salatalık' },
+        { containerId: 'mevsim_salata', ad: 'Mevsim Salata', fiyat: '320 ₺', icerik: 'Mix yeşillik, domates, salatalık, turp' },
+        { containerId: 'sezar_salata', ad: 'Tavuklu Sezar Salata', fiyat: '480 ₺', icerik: '150gr tavuk, marul, parmesan, kruton, sezar sos' },
+      ],
+      hizli: [
+        { containerId: 'kofte_wrap', ad: 'Köfteli Wrap', fiyat: '490 ₺', icerik: 'Parmak patates ve Lima özel sos eşliğinde' },
+        { containerId: 'citir_tavuk_wrap', ad: 'Lima Çıtır Tavuk Wrap', fiyat: '460 ₺', icerik: 'Parmak patates ve Lima özel sos ile' },
+        { containerId: 'mantarli_tavuk_wrap', ad: 'Mantarlı Tavuk Wrap', fiyat: '460 ₺', icerik: 'Parmak patates ve Lima özel sos ile' },
+        { containerId: 'cheddarli_et_wrap', ad: 'Cheddarlı Et Wrap', fiyat: '630 ₺', icerik: 'Parmak patates ve Lima özel sos ile' },
+        { containerId: 'tavuk_quesadilla', ad: 'Tavuk Quesadilla', fiyat: '490 ₺', icerik: 'Parmak patates, Lima özel sos' },
+        { containerId: 'etli_quesadilla', ad: 'Etli Quesadilla', fiyat: '630 ₺', icerik: 'Parmak patates, Lima özel sos' },
+        { containerId: 'citir_tavuk', ad: 'Çıtır Tavuk', fiyat: '480 ₺', icerik: 'Parmak patates ve Lima özel sos ile' },
+        { containerId: 'soslu_manti', ad: 'Soslu Mantı', fiyat: '480 ₺', icerik: 'Tereyağı sos ve yoğurt sos ile' },
       ],
       burger: [
         { containerId: 'focus_beef_burger', ad: 'Focus Beef Burger', fiyat: '440 ₺', icerik: '120gr dana burger, karamelize soğan, kibrit patates, dana jambon, trüflü mayonez, parmak patates' },
@@ -585,6 +664,14 @@
         { containerId: 'truffle_chicken_burger', ad: 'Lima Trüffle Chicken Burger', fiyat: '400 ₺', icerik: '160gr tavuk burger, karamelize soğan, kibrit patates, turşu, trüflü mayonez, parmak patates' },
         { containerId: 'bbq_chicken_burger', ad: 'BBQ Chicken Burger', fiyat: '400 ₺', icerik: '160gr tavuk burger, barbekü sos, cheddar peyniri, marul, turşu, parmak patates' },
         { containerId: 'chilly_honey_burger', ad: 'Chilly Honey Chicken Burger', fiyat: '400 ₺', icerik: '160gr tavuk burger, sweet chili sos, cheddar peyniri, marul, turşu, parmak patates' },
+      ],
+      makarna: [
+        { containerId: 'fettuccine_alfredo', ad: 'Fettuccine Alfredo', fiyat: '490 ₺', icerik: 'Fettuccine, krema, parmesan, sarımsak' },
+        { containerId: 'kori_tavuklu_penne', ad: 'Köri Soslu Tavuklu Penne', fiyat: '490 ₺', icerik: 'Tavuk, penne, köri sosu, krema' },
+        { containerId: 'tavuklu_noodle', ad: 'Tavuklu Noodle', fiyat: '490 ₺', icerik: 'Tavuk, noodle, sebze, sos' },
+        { containerId: 'etli_noodle', ad: 'Etli Noodle', fiyat: '600 ₺', icerik: 'Dana eti, noodle, sebze, sos' },
+        { containerId: 'sebzeli_noodle', ad: 'Sebzeli Noodle', fiyat: '460 ₺', icerik: 'Mevsim sebzeleri, noodle, sos' },
+        { containerId: 'penne_arabiata', ad: 'Penne Arrabiata', fiyat: '460 ₺', icerik: 'Penne, domates sosu, acı biber, sarımsak' },
       ],
       pizza: [
         { containerId: 'klasik_pizza', ad: 'Klasik Pizza', fiyat: '580 ₺', icerik: 'Sucuk, sosis, salam, mantar, mısır, yeşil biber, kırmızı biber, siyah zeytin, pizza sos' },
