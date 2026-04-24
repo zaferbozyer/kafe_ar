@@ -1,189 +1,13 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html>
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kafe AR Menü</title>
   <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { overflow: hidden; font-family: 'Segoe UI', sans-serif; }
-
-    #info-btn {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      border: 2px solid rgba(255,255,255,0.9);
-      background: rgba(0,0,0,0.45);
-      color: white;
-      font-size: 18px;
-      font-weight: 700;
-      font-style: italic;
-      cursor: pointer;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-    }
-
-    #btn-sol {
-      position: fixed;
-      left: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 2px solid rgba(255,255,255,0.6);
-      background: rgba(0,0,0,0.3);
-      color: white;
-      font-size: 28px;
-      cursor: pointer;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-    }
-
-    #btn-sag {
-      position: fixed;
-      right: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 2px solid rgba(255,255,255,0.6);
-      background: rgba(0,0,0,0.3);
-      color: white;
-      font-size: 28px;
-      cursor: pointer;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-    }
-
-    #urun-panel {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      z-index: 9999;
-    }
-
-    #urun-adi {
-      background: rgba(0,0,0,0.5);
-      color: #e8c96d;
-      padding: 6px 18px;
-      border-radius: 20px;
-      font-size: 15px;
-      font-weight: 600;
-      text-align: center;
-      white-space: nowrap;
-    }
-
-    #urun-fiyat {
-      background: rgba(232,201,109,0.85);
-      color: #1a1a2e;
-      padding: 3px 14px;
-      border-radius: 20px;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    #kategori-menu {
-      position: fixed;
-      bottom: 24px;
-      left: 0;
-      right: 0;
-      display: none;
-      gap: 10px;
-      z-index: 9999;
-      overflow-x: auto;
-      padding: 0 16px;
-      scrollbar-width: none;
-    }
-
-    #kategori-menu::-webkit-scrollbar { display: none; }
-
-    .kategori-btn {
-      padding: 10px 16px;
-      border-radius: 24px;
-      border: 2px solid rgba(255,255,255,0.6);
-      background: rgba(0,0,0,0.4);
-      color: white;
-      font-size: 13px;
-      cursor: pointer;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .kategori-btn.aktif {
-      background: #e8c96d;
-      color: #1a1a2e;
-      border-color: #e8c96d;
-      font-weight: 600;
-    }
-
-    .kategori-btn.yakinda {
-      opacity: 0.45;
-      cursor: not-allowed;
-    }
-
-    #info-modal {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: rgba(20,20,40,0.96);
-      border: 2px solid #e8c96d;
-      border-radius: 20px;
-      padding: 28px 24px;
-      width: 85vw;
-      max-width: 340px;
-      z-index: 99999;
-      display: none;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    #info-modal h2 { color: #e8c96d; font-size: 19px; text-align: center; font-weight: 600; }
-    #info-modal .fiyat { color: white; font-size: 24px; font-weight: 700; text-align: center; }
-    #info-modal .ayrac { height: 1px; background: rgba(232,201,109,0.3); }
-    #info-modal .icerik-baslik { color: #e8c96d; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; }
-    #info-modal .icerik { color: rgba(255,255,255,0.85); font-size: 14px; line-height: 1.7; }
-
-    #hedef-mesaj {
-      position: fixed;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0,0,0,0.65);
-      color: white;
-      padding: 12px 24px;
-      border-radius: 24px;
-      font-size: 13px;
-      z-index: 9999;
-      text-align: center;
-      display: block;
-      white-space: nowrap;
-    }
-  </style>
 </head>
 <body>
-
-  <a-scene mindar-image="imageTargetSrc: ./targets.mind; autoStart: true; filterMinCF: 0.001; filterBeta: 0.001"
-           color-space="sRGB"
-           renderer="colorManagement: true"
+  <a-scene mindar-image="imageTargetSrc: ./targets.mind; autoStart: true"
            vr-mode-ui="enabled: false"
            device-orientation-permission-ui="enabled: false">
 
@@ -191,168 +15,36 @@
 
     <a-entity mindar-image-target="targetIndex: 0">
       <a-gltf-model id="m0" src="./models/chocolate_muffin.glb"
-        position="0 0.15 0" scale="0 0 0"
-        animation__rot="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 6000; easing: linear">
+        position="0 0.1 0" scale="0.08 0.08 0.08">
       </a-gltf-model>
       <a-gltf-model id="m1" src="./models/cookie.glb"
-        position="0 0.15 0" scale="0 0 0"
-        animation__rot="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 6000; easing: linear">
-      </a-gltf-model>
-      <a-gltf-model id="m2" src="./models/donut_white.glb"
-        position="0 0.15 0" scale="0 0 0"
-        animation__rot="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 6000; easing: linear">
-      </a-gltf-model>
-      <a-gltf-model id="m3" src="./models/donut_color.glb"
-        position="0 0.15 0" scale="0 0 0"
-        animation__rot="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 6000; easing: linear">
-      </a-gltf-model>
-      <a-gltf-model id="m4" src="./models/sakura_cake_roll.glb"
-        position="0 0.15 0" scale="0 0 0"
-        animation__rot="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 6000; easing: linear">
+        position="0 0.1 0" scale="0 0 0">
       </a-gltf-model>
     </a-entity>
 
   </a-scene>
 
-  <button id="info-btn" onclick="infoToggle()">i</button>
-  <button id="btn-sol" onclick="oncekiUrun()">&#8249;</button>
-  <button id="btn-sag" onclick="sonrakiUrun()">&#8250;</button>
-
-  <div id="urun-panel">
-    <div id="urun-adi"></div>
-    <div id="urun-fiyat"></div>
-  </div>
-
-  <div id="kategori-menu">
-    <button class="kategori-btn yakinda" onclick="yakindaMesaj()">☕ Sıcak İçecek</button>
-    <button class="kategori-btn yakinda" onclick="yakindaMesaj()">🧊 Soğuk İçecek</button>
-    <button class="kategori-btn yakinda" onclick="yakindaMesaj()">🥨 Atıştırmalık</button>
-    <button class="kategori-btn yakinda" onclick="yakindaMesaj()">🥩 Et Yemekleri</button>
-    <button class="kategori-btn yakinda" onclick="yakindaMesaj()">🍗 Tavuk</button>
-    <button class="kategori-btn aktif" onclick="kategoriSec(this, 'tatlilar')">🍰 Tatlılar</button>
-  </div>
-
-  <div id="info-modal">
-    <h2 id="modal-adi"></h2>
-    <div class="fiyat" id="modal-fiyat"></div>
-    <div class="ayrac"></div>
-    <div class="icerik-baslik">İçindekiler</div>
-    <div class="icerik" id="modal-icerik"></div>
-  </div>
-
-  <div id="hedef-mesaj">📷 Kamerayı masa işaretçisine tutun</div>
+  <button onclick="gec()" style="position:fixed;bottom:40px;right:20px;padding:20px;font-size:20px;z-index:9999">▶</button>
+  <div id="log" style="position:fixed;top:10px;left:10px;background:rgba(0,0,0,0.7);color:lime;padding:10px;z-index:9999;font-size:14px"></div>
 
   <script>
-    const menu = {
-      tatlilar: [
-        { modelId: 'm0', scale: '0.08 0.08 0.08', ad: 'Chocolate Muffin', fiyat: '45 ₺', icerik: 'Çikolata, un, yumurta, süt, tereyağı, kabartma tozu, şeker, kakao' },
-        { modelId: 'm1', scale: '0.08 0.08 0.08', ad: 'Cookie',           fiyat: '35 ₺', icerik: 'Un, şeker, çikolata parçaları, tereyağı, yumurta, vanilya, tuz' },
-        { modelId: 'm2', scale: '0.08 0.08 0.08', ad: 'Donut White',      fiyat: '40 ₺', icerik: 'Un, şeker, süt, maya, tereyağı, beyaz glazür, pudra şekeri' },
-        { modelId: 'm3', scale: '0.08 0.08 0.08', ad: 'Renkli Donut',     fiyat: '45 ₺', icerik: 'Un, şeker, süt, maya, tereyağı, renkli glazür, şeker sprinkle' },
-        { modelId: 'm4', scale: '0.08 0.08 0.08', ad: 'Sakura Cake Roll', fiyat: '55 ₺', icerik: 'Pandispanya, çırpılmış krema, çilek, sakura esansı, pudra şekeri' }
-      ]
-    }
+    let index = 0
 
-    let mevcutKategori = 'tatlilar'
-    let mevcutIndex = 0
-    let arAktif = false
-    let infoAcik = false
-
-    let touchStartX = 0
-    document.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX })
-    document.addEventListener('touchend', e => {
-      if (!arAktif || infoAcik) return
-      const diff = touchStartX - e.changedTouches[0].clientX
-      if (Math.abs(diff) > 50) diff > 0 ? sonrakiUrun() : oncekiUrun()
-    })
-
-    function tumModellerGizle() {
-      for (let i = 0; i <= 4; i++) {
-        const el = document.getElementById('m' + i)
-        if (el) el.setAttribute('scale', '0 0 0')
+    function gec() {
+      const m0 = document.getElementById('m0')
+      const m1 = document.getElementById('m1')
+      
+      if (index === 0) {
+        m0.setAttribute('scale', '0 0 0')
+        m1.setAttribute('scale', '0.08 0.08 0.08')
+        index = 1
+      } else {
+        m1.setAttribute('scale', '0 0 0')
+        m0.setAttribute('scale', '0.08 0.08 0.08')
+        index = 0
       }
+      document.getElementById('log').textContent = 'Model: ' + index
     }
-
-    function urunGoster(index) {
-      tumModellerGizle()
-      const urun = menu[mevcutKategori][index]
-      const el = document.getElementById(urun.modelId)
-      if (el) el.setAttribute('scale', urun.scale)
-      document.getElementById('urun-adi').textContent = urun.ad
-      document.getElementById('urun-fiyat').textContent = urun.fiyat
-      document.getElementById('modal-adi').textContent = urun.ad
-      document.getElementById('modal-fiyat').textContent = urun.fiyat
-      document.getElementById('modal-icerik').textContent = urun.icerik
-    }
-
-    function sonrakiUrun() {
-      mevcutIndex = (mevcutIndex + 1) % menu[mevcutKategori].length
-      urunGoster(mevcutIndex)
-    }
-
-    function oncekiUrun() {
-      mevcutIndex = (mevcutIndex - 1 + menu[mevcutKategori].length) % menu[mevcutKategori].length
-      urunGoster(mevcutIndex)
-    }
-
-    function kategoriSec(btn, kategori) {
-      if (!menu[kategori]) return
-      document.querySelectorAll('.kategori-btn').forEach(b => b.classList.remove('aktif'))
-      btn.classList.add('aktif')
-      mevcutKategori = kategori
-      mevcutIndex = 0
-      urunGoster(0)
-    }
-
-    function yakindaMesaj() {
-      const mesaj = document.getElementById('hedef-mesaj')
-      mesaj.textContent = '🚧 Bu kategori yakında eklenecek!'
-      mesaj.style.display = 'block'
-      setTimeout(() => {
-        if (arAktif) mesaj.style.display = 'none'
-        else mesaj.textContent = '📷 Kamerayı masa işaretçisine tutun'
-      }, 2000)
-    }
-
-    function infoToggle() {
-      const modal = document.getElementById('info-modal')
-      infoAcik = !infoAcik
-      modal.style.display = infoAcik ? 'flex' : 'none'
-    }
-
-    function uiGoster() {
-      document.getElementById('kategori-menu').style.display = 'flex'
-      document.getElementById('urun-panel').style.display = 'flex'
-      document.getElementById('btn-sol').style.display = 'flex'
-      document.getElementById('btn-sag').style.display = 'flex'
-      document.getElementById('info-btn').style.display = 'flex'
-      document.getElementById('hedef-mesaj').style.display = 'none'
-    }
-
-    function uiGizle() {
-      document.getElementById('kategori-menu').style.display = 'none'
-      document.getElementById('urun-panel').style.display = 'none'
-      document.getElementById('btn-sol').style.display = 'none'
-      document.getElementById('btn-sag').style.display = 'none'
-      document.getElementById('info-btn').style.display = 'none'
-      document.getElementById('info-modal').style.display = 'none'
-      document.getElementById('hedef-mesaj').style.display = 'block'
-      document.getElementById('hedef-mesaj').textContent = '📷 Kamerayı masa işaretçisine tutun'
-      infoAcik = false
-    }
-
-    document.querySelector('[mindar-image-target]').addEventListener('targetFound', () => {
-      arAktif = true
-      uiGoster()
-      urunGoster(mevcutIndex)
-    })
-
-    document.querySelector('[mindar-image-target]').addEventListener('targetLost', () => {
-      arAktif = false
-      tumModellerGizle()
-      uiGizle()
-    })
   </script>
-
 </body>
 </html>
