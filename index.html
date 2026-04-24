@@ -10,49 +10,41 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { overflow: hidden; font-family: 'Segoe UI', sans-serif; }
 
-    /* Sağ alt kontrol grubu — i butonu + ileri/geri oklar */
-    #kontrol-grubu {
-      position: fixed;
-      right: 12px;
-      bottom: 110px; /* kategori menüsünün hemen üstünde */
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      z-index: 9999;
-    }
-
+    /* i butonu — sol altta, oklar ile aynı hizada */
     #info-btn {
+      position: fixed;
+      left: 16px;
+      bottom: 145px;
       width: 48px; height: 48px; border-radius: 50%;
       border: 2px solid rgba(255,255,255,0.9);
       background: rgba(0,0,0,0.5); color: white;
       font-size: 20px; font-weight: 700; font-style: italic;
-      cursor: pointer; display: flex;
-      align-items: center; justify-content: center;
+      cursor: pointer; display: none;
+      align-items: center; justify-content: center; z-index: 9999;
     }
-
-    #nav-oklar {
-      display: flex;
-      flex-direction: row;
-      gap: 8px;
-    }
-
+    /* Sol ok — sağda, i butonu ile aynı yükseklikte */
     #btn-sol {
-      width: 54px; height: 54px; border-radius: 50%;
+      position: fixed;
+      right: 72px;
+      bottom: 145px;
+      width: 48px; height: 48px; border-radius: 50%;
       border: 2px solid rgba(255,255,255,0.6); background: rgba(0,0,0,0.4);
-      color: white; font-size: 28px; cursor: pointer; display: flex;
-      align-items: center; justify-content: center;
+      color: white; font-size: 28px; cursor: pointer; display: none;
+      align-items: center; justify-content: center; z-index: 9999;
     }
+    /* Sağ ok */
     #btn-sag {
-      width: 54px; height: 54px; border-radius: 50%;
+      position: fixed;
+      right: 16px;
+      bottom: 145px;
+      width: 48px; height: 48px; border-radius: 50%;
       border: 2px solid rgba(255,255,255,0.6); background: rgba(0,0,0,0.4);
-      color: white; font-size: 28px; cursor: pointer; display: flex;
-      align-items: center; justify-content: center;
+      color: white; font-size: 28px; cursor: pointer; display: none;
+      align-items: center; justify-content: center; z-index: 9999;
     }
-
     #urun-panel {
       position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-      display: none; flex-direction: column; align-items: center; gap: 8px; z-index: 9999;
+      display: none; flex-direction: column; align-items: center; gap: 6px; z-index: 9999;
     }
     #urun-adi {
       background: rgba(0,0,0,0.55); color: #e8c96d;
@@ -562,14 +554,9 @@
     </a-entity>
   </a-scene>
 
-  <!-- Sağ alt kontrol grubu: i butonu + ileri/geri oklar -->
-  <div id="kontrol-grubu">
-    <button id="info-btn" onclick="infoToggle()">i</button>
-    <div id="nav-oklar">
-      <button id="btn-sol" onclick="oncekiUrun()">&#8249;</button>
-      <button id="btn-sag" onclick="sonrakiUrun()">&#8250;</button>
-    </div>
-  </div>
+  <button id="info-btn" onclick="infoToggle()">i</button>
+  <button id="btn-sol" onclick="oncekiUrun()">&#8249;</button>
+  <button id="btn-sag" onclick="sonrakiUrun()">&#8250;</button>
 
   <div id="urun-panel">
     <div id="urun-adi"></div>
@@ -821,14 +808,18 @@
     function uiGoster() {
       document.getElementById('kategori-wrapper').style.display = 'block'
       document.getElementById('urun-panel').style.display = 'flex'
-      document.getElementById('kontrol-grubu').style.display = 'flex'
+      document.getElementById('btn-sol').style.display = 'flex'
+      document.getElementById('btn-sag').style.display = 'flex'
+      document.getElementById('info-btn').style.display = 'flex'
       document.getElementById('hedef-mesaj').style.display = 'none'
     }
 
     function uiGizle() {
       document.getElementById('kategori-wrapper').style.display = 'none'
       document.getElementById('urun-panel').style.display = 'none'
-      document.getElementById('kontrol-grubu').style.display = 'none'
+      document.getElementById('btn-sol').style.display = 'none'
+      document.getElementById('btn-sag').style.display = 'none'
+      document.getElementById('info-btn').style.display = 'none'
       document.getElementById('info-modal').style.display = 'none'
       document.getElementById('hedef-mesaj').style.display = 'block'
       document.getElementById('hedef-mesaj').textContent = '📷 Kamerayı masa işaretçisine tutun'
