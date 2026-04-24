@@ -10,7 +10,6 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { overflow: hidden; font-family: 'Segoe UI', sans-serif; }
 
-    /* Kategori menüsü */
     #kategori-menu {
       position: fixed;
       top: 20px;
@@ -32,7 +31,6 @@
       color: white;
       font-size: 12px;
       cursor: pointer;
-      transition: all 0.2s;
       white-space: nowrap;
     }
 
@@ -48,19 +46,16 @@
       cursor: not-allowed;
     }
 
-    /* Ürün bilgi paneli */
     #urun-panel {
       position: fixed;
-      bottom: 100px;
+      bottom: 30px;
       left: 50%;
       transform: translateX(-50%);
       display: none;
       flex-direction: column;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       z-index: 9999;
-      width: 90vw;
-      max-width: 360px;
     }
 
     #urun-adi {
@@ -82,19 +77,11 @@
       font-weight: 700;
     }
 
-    /* Navigasyon okları */
-    #nav-panel {
+    #btn-sol {
       position: fixed;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: none;
-      align-items: center;
-      gap: 20px;
-      z-index: 9999;
-    }
-
-    .nav-btn {
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
       width: 50px;
       height: 50px;
       border-radius: 50%;
@@ -103,12 +90,35 @@
       font-size: 22px;
       cursor: pointer;
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      display: flex;
+      display: none;
       align-items: center;
       justify-content: center;
+      z-index: 9999;
+    }
+
+    #btn-sag {
+      position: fixed;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,0.9);
+      font-size: 22px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
     }
 
     #info-btn {
+      position: fixed;
+      right: 12px;
+      bottom: 30px;
       width: 50px;
       height: 50px;
       border-radius: 50%;
@@ -118,12 +128,12 @@
       font-size: 20px;
       font-weight: 700;
       cursor: pointer;
-      display: flex;
+      display: none;
       align-items: center;
       justify-content: center;
+      z-index: 9999;
     }
 
-    /* Info modal */
     #info-modal {
       position: fixed;
       top: 50%;
@@ -141,46 +151,11 @@
       gap: 12px;
     }
 
-    #info-modal h2 {
-      color: #e8c96d;
-      font-size: 18px;
-      text-align: center;
-    }
+    #info-modal h2 { color: #e8c96d; font-size: 18px; text-align: center; }
+    #info-modal .fiyat { color: white; font-size: 22px; font-weight: 700; text-align: center; }
+    #info-modal .icerik-baslik { color: #e8c96d; font-size: 13px; font-weight: 600; letter-spacing: 1px; }
+    #info-modal .icerik { color: rgba(255,255,255,0.85); font-size: 14px; line-height: 1.6; }
 
-    #info-modal .fiyat {
-      color: white;
-      font-size: 22px;
-      font-weight: 700;
-      text-align: center;
-    }
-
-    #info-modal .icerik-baslik {
-      color: #e8c96d;
-      font-size: 13px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    #info-modal .icerik {
-      color: rgba(255,255,255,0.85);
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    #info-modal .kapat-btn {
-      background: #e8c96d;
-      color: #1a1a2e;
-      border: none;
-      border-radius: 20px;
-      padding: 10px;
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-      margin-top: 4px;
-    }
-
-    /* Hedef bulunamadı mesajı */
     #hedef-mesaj {
       position: fixed;
       bottom: 40px;
@@ -194,6 +169,7 @@
       z-index: 9999;
       text-align: center;
       display: block;
+      white-space: nowrap;
     }
   </style>
 </head>
@@ -216,102 +192,77 @@
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
     <a-entity mindar-image-target="targetIndex: 0">
-      <!-- Tüm modeller burada, JS ile göster/gizle -->
-      <a-gltf-model id="ar-muffin" src="#muffin" position="0 0.05 0" scale="0.08 0.08 0.08" visible="true"
-        animation="property: rotation; to: 0 360 0; loop: true; dur: 6000; easing: linear"></a-gltf-model>
-      <a-gltf-model id="ar-cookie" src="#cookie" position="0 0.05 0" scale="0.08 0.08 0.08" visible="false"
-        animation="property: rotation; to: 0 360 0; loop: true; dur: 6000; easing: linear"></a-gltf-model>
-      <a-gltf-model id="ar-donut-white" src="#donut-white" position="0 0.05 0" scale="0.08 0.08 0.08" visible="false"
-        animation="property: rotation; to: 0 360 0; loop: true; dur: 6000; easing: linear"></a-gltf-model>
-      <a-gltf-model id="ar-donut-color" src="#donut-color" position="0 0.05 0" scale="0.08 0.08 0.08" visible="false"
-        animation="property: rotation; to: 0 360 0; loop: true; dur: 6000; easing: linear"></a-gltf-model>
-      <a-gltf-model id="ar-sakura" src="#sakura" position="0 0.05 0" scale="0.08 0.08 0.08" visible="false"
-        animation="property: rotation; to: 0 360 0; loop: true; dur: 6000; easing: linear"></a-gltf-model>
+      <a-gltf-model id="ar-muffin" src="#muffin"
+        position="0 0.15 0" rotation="-90 0 0" scale="0.08 0.08 0.08" visible="false"
+        animation="property: rotation; from: -90 0 0; to: -90 360 0; loop: true; dur: 6000; easing: linear">
+      </a-gltf-model>
+      <a-gltf-model id="ar-cookie" src="#cookie"
+        position="0 0.15 0" rotation="-90 0 0" scale="0.08 0.08 0.08" visible="false"
+        animation="property: rotation; from: -90 0 0; to: -90 360 0; loop: true; dur: 6000; easing: linear">
+      </a-gltf-model>
+      <a-gltf-model id="ar-donut-white" src="#donut-white"
+        position="0 0.15 0" rotation="-90 0 0" scale="0.08 0.08 0.08" visible="false"
+        animation="property: rotation; from: -90 0 0; to: -90 360 0; loop: true; dur: 6000; easing: linear">
+      </a-gltf-model>
+      <a-gltf-model id="ar-donut-color" src="#donut-color"
+        position="0 0.15 0" rotation="-90 0 0" scale="0.08 0.08 0.08" visible="false"
+        animation="property: rotation; from: -90 0 0; to: -90 360 0; loop: true; dur: 6000; easing: linear">
+      </a-gltf-model>
+      <a-gltf-model id="ar-sakura" src="#sakura"
+        position="0 0.15 0" rotation="-90 0 0" scale="0.08 0.08 0.08" visible="false"
+        animation="property: rotation; from: -90 0 0; to: -90 360 0; loop: true; dur: 6000; easing: linear">
+      </a-gltf-model>
     </a-entity>
 
   </a-scene>
 
-  <!-- Kategori menüsü -->
   <div id="kategori-menu">
     <button class="kategori-btn yakinda" onclick="yakindaMesaj()">☕ Sıcak İçecek</button>
     <button class="kategori-btn yakinda" onclick="yakindaMesaj()">🧊 Soğuk İçecek</button>
     <button class="kategori-btn yakinda" onclick="yakindaMesaj()">🥨 Atıştırmalık</button>
-    <button class="kategori-btn yakinda" onclick="yakindaMesaj()">🥩 Et Yemekleri</button>
-    <button class="kategori-btn yakinda" onclick="yakindaMesaj()">🍗 Tavuk Yemekleri</button>
+    <button class="kategori-btn yakinda" onclick="yakindaMesaj()">🥩 Et</button>
+    <button class="kategori-btn yakinda" onclick="yakindaMesaj()">🍗 Tavuk</button>
     <button class="kategori-btn aktif" onclick="kategoriSec(this, 'tatlilar')">🍰 Tatlılar</button>
   </div>
 
-  <!-- Ürün adı ve fiyat -->
+  <button id="btn-sol" onclick="oncekiUrun()">◀</button>
+  <button id="btn-sag" onclick="sonrakiUrun()">▶</button>
+  <button id="info-btn" onclick="infoToggle()">i</button>
+
   <div id="urun-panel">
     <div id="urun-adi">Chocolate Muffin</div>
     <div id="urun-fiyat">45 ₺</div>
   </div>
 
-  <!-- Navigasyon -->
-  <div id="nav-panel">
-    <button class="nav-btn" onclick="oncekiUrun()">◀</button>
-    <button id="info-btn" onclick="infoAc()">i</button>
-    <button class="nav-btn" onclick="sonrakiUrun()">▶</button>
-  </div>
-
-  <!-- Info modal -->
   <div id="info-modal">
-    <h2 id="modal-adi">Chocolate Muffin</h2>
-    <div class="fiyat" id="modal-fiyat">45 ₺</div>
+    <h2 id="modal-adi"></h2>
+    <div class="fiyat" id="modal-fiyat"></div>
     <div class="icerik-baslik">İçindekiler</div>
-    <div class="icerik" id="modal-icerik">Çikolata, un, yumurta, süt, tereyağı, kabartma tozu, şeker, kakao</div>
-    <button class="kapat-btn" onclick="infoKapat()">Kapat</button>
+    <div class="icerik" id="modal-icerik"></div>
   </div>
 
-  <!-- Hedef mesajı -->
   <div id="hedef-mesaj">📷 Kamerayı masa işaretçisine tutun</div>
 
   <script>
-    // Menü verisi
     const menu = {
       tatlilar: [
-        {
-          id: 'ar-muffin',
-          ad: 'Chocolate Muffin',
-          fiyat: '45 ₺',
-          icerik: 'Çikolata, un, yumurta, süt, tereyağı, kabartma tozu, şeker, kakao'
-        },
-        {
-          id: 'ar-cookie',
-          ad: 'Cookie',
-          fiyat: '35 ₺',
-          icerik: 'Un, şeker, çikolata parçaları, tereyağı, yumurta, vanilya, tuz'
-        },
-        {
-          id: 'ar-donut-white',
-          ad: 'Donut White',
-          fiyat: '40 ₺',
-          icerik: 'Un, şeker, süt, maya, tereyağı, beyaz glazür, pudra şekeri'
-        },
-        {
-          id: 'ar-donut-color',
-          ad: 'Renkli Donut',
-          fiyat: '45 ₺',
-          icerik: 'Un, şeker, süt, maya, tereyağı, renkli glazür, şeker sprinkle'
-        },
-        {
-          id: 'ar-sakura',
-          ad: 'Sakura Cake Roll',
-          fiyat: '55 ₺',
-          icerik: 'Pandispanya, çırpılmış krema, çilek, sakura esansı, pudra şekeri'
-        }
+        { id: 'ar-muffin', ad: 'Chocolate Muffin', fiyat: '45 ₺', icerik: 'Çikolata, un, yumurta, süt, tereyağı, kabartma tozu, şeker, kakao' },
+        { id: 'ar-cookie', ad: 'Cookie', fiyat: '35 ₺', icerik: 'Un, şeker, çikolata parçaları, tereyağı, yumurta, vanilya, tuz' },
+        { id: 'ar-donut-white', ad: 'Donut White', fiyat: '40 ₺', icerik: 'Un, şeker, süt, maya, tereyağı, beyaz glazür, pudra şekeri' },
+        { id: 'ar-donut-color', ad: 'Renkli Donut', fiyat: '45 ₺', icerik: 'Un, şeker, süt, maya, tereyağı, renkli glazür, şeker sprinkle' },
+        { id: 'ar-sakura', ad: 'Sakura Cake Roll', fiyat: '55 ₺', icerik: 'Pandispanya, çırpılmış krema, çilek, sakura esansı, pudra şekeri' }
       ]
     }
 
     let mevcutKategori = 'tatlilar'
     let mevcutIndex = 0
     let arAktif = false
+    let infoAcik = false
 
-    // Swipe desteği
     let touchStartX = 0
     document.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX })
     document.addEventListener('touchend', e => {
-      if (!arAktif) return
+      if (!arAktif || infoAcik) return
       const diff = touchStartX - e.changedTouches[0].clientX
       if (Math.abs(diff) > 50) {
         if (diff > 0) sonrakiUrun()
@@ -320,33 +271,32 @@
     })
 
     function tumModellerGizle() {
-      const urunler = menu[mevcutKategori]
-      urunler.forEach(u => {
+      Object.values(menu).flat().forEach(u => {
         const el = document.getElementById(u.id)
         if (el) el.setAttribute('visible', false)
       })
     }
 
-    function urungoster(index) {
+    function urunGoster(index) {
       tumModellerGizle()
       const urun = menu[mevcutKategori][index]
       const el = document.getElementById(urun.id)
       if (el) el.setAttribute('visible', true)
-
       document.getElementById('urun-adi').textContent = urun.ad
       document.getElementById('urun-fiyat').textContent = urun.fiyat
+      document.getElementById('modal-adi').textContent = urun.ad
+      document.getElementById('modal-fiyat').textContent = urun.fiyat
+      document.getElementById('modal-icerik').textContent = urun.icerik
     }
 
     function sonrakiUrun() {
-      const toplam = menu[mevcutKategori].length
-      mevcutIndex = (mevcutIndex + 1) % toplam
-      urungoster(mevcutIndex)
+      mevcutIndex = (mevcutIndex + 1) % menu[mevcutKategori].length
+      urunGoster(mevcutIndex)
     }
 
     function oncekiUrun() {
-      const toplam = menu[mevcutKategori].length
-      mevcutIndex = (mevcutIndex - 1 + toplam) % toplam
-      urungoster(mevcutIndex)
+      mevcutIndex = (mevcutIndex - 1 + menu[mevcutKategori].length) % menu[mevcutKategori].length
+      urunGoster(mevcutIndex)
     }
 
     function kategoriSec(btn, kategori) {
@@ -355,7 +305,7 @@
       btn.classList.add('aktif')
       mevcutKategori = kategori
       mevcutIndex = 0
-      urungoster(0)
+      urunGoster(0)
     }
 
     function yakindaMesaj() {
@@ -363,45 +313,54 @@
       mesaj.textContent = '🚧 Bu kategori yakında eklenecek!'
       mesaj.style.display = 'block'
       setTimeout(() => {
-        if (!arAktif) mesaj.textContent = '📷 Kamerayı masa işaretçisine tutun'
-        else mesaj.style.display = 'none'
+        if (arAktif) mesaj.style.display = 'none'
+        else mesaj.textContent = '📷 Kamerayı masa işaretçisine tutun'
       }, 2000)
     }
 
-    function infoAc() {
-      const urun = menu[mevcutKategori][mevcutIndex]
-      document.getElementById('modal-adi').textContent = urun.ad
-      document.getElementById('modal-fiyat').textContent = urun.fiyat
-      document.getElementById('modal-icerik').textContent = urun.icerik
-      document.getElementById('info-modal').style.display = 'flex'
+    function infoToggle() {
+      const modal = document.getElementById('info-modal')
+      if (infoAcik) {
+        modal.style.display = 'none'
+        infoAcik = false
+      } else {
+        modal.style.display = 'flex'
+        infoAcik = true
+      }
     }
 
-    function infoKapat() {
+    function uiGoster() {
+      document.getElementById('kategori-menu').style.display = 'flex'
+      document.getElementById('urun-panel').style.display = 'flex'
+      document.getElementById('btn-sol').style.display = 'flex'
+      document.getElementById('btn-sag').style.display = 'flex'
+      document.getElementById('info-btn').style.display = 'flex'
+      document.getElementById('hedef-mesaj').style.display = 'none'
+    }
+
+    function uiGizle() {
+      document.getElementById('kategori-menu').style.display = 'none'
+      document.getElementById('urun-panel').style.display = 'none'
+      document.getElementById('btn-sol').style.display = 'none'
+      document.getElementById('btn-sag').style.display = 'none'
+      document.getElementById('info-btn').style.display = 'none'
       document.getElementById('info-modal').style.display = 'none'
+      document.getElementById('hedef-mesaj').style.display = 'block'
+      document.getElementById('hedef-mesaj').textContent = '📷 Kamerayı masa işaretçisine tutun'
+      infoAcik = false
     }
 
-    // AR target olayları
-    document.querySelector('[mindar-image-target]')
-      .addEventListener('targetFound', () => {
-        arAktif = true
-        document.getElementById('kategori-menu').style.display = 'flex'
-        document.getElementById('urun-panel').style.display = 'flex'
-        document.getElementById('nav-panel').style.display = 'flex'
-        document.getElementById('hedef-mesaj').style.display = 'none'
-        urungoster(mevcutIndex)
-      })
+    document.querySelector('[mindar-image-target]').addEventListener('targetFound', () => {
+      arAktif = true
+      uiGoster()
+      urunGoster(mevcutIndex)
+    })
 
-    document.querySelector('[mindar-image-target]')
-      .addEventListener('targetLost', () => {
-        arAktif = false
-        document.getElementById('kategori-menu').style.display = 'none'
-        document.getElementById('urun-panel').style.display = 'none'
-        document.getElementById('nav-panel').style.display = 'none'
-        document.getElementById('info-modal').style.display = 'none'
-        document.getElementById('hedef-mesaj').style.display = 'block'
-        document.getElementById('hedef-mesaj').textContent = '📷 Kamerayı masa işaretçisine tutun'
-        tumModellerGizle()
-      })
+    document.querySelector('[mindar-image-target]').addEventListener('targetLost', () => {
+      arAktif = false
+      tumModellerGizle()
+      uiGizle()
+    })
   </script>
 
 </body>
