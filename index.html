@@ -181,12 +181,11 @@
 </head>
 <body>
 
-  <a-scene 
-      mindar-image="imageTargetSrc: ./targets.mind; filterMinCF: 0.005; filterBeta: 0.1; missTolerance: 300"
-      color-space="sRGB"
-      renderer="colorManagement: true, physicallyCorrectLights: true"
-      vr-mode-ui="enabled: false"
-      device-orientation-permission-ui="enabled: false">
+  <a-scene mindar-image="imageTargetSrc: ./targets.mind; autoStart: true; filterMinCF: 0.001; filterBeta: 0.001"
+           color-space="sRGB"
+           renderer="colorManagement: true"
+           vr-mode-ui="enabled: false"
+           device-orientation-permission-ui="enabled: false">
 
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
@@ -202,7 +201,7 @@
         id="m0"
         src="./models/yeni_muffin.glb" 
         scale="0 0 0" 
-        position="0 0.15 0">
+        position="0 0 0">
       </a-gltf-model>
 
     </a-entity>
