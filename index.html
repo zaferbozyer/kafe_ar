@@ -11,203 +11,423 @@
     body { overflow: hidden; font-family: 'Segoe UI', sans-serif; }
 
     #info-btn {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
+      position: fixed; top: 20px; left: 20px;
+      width: 44px; height: 44px; border-radius: 50%;
       border: 2px solid rgba(255,255,255,0.9);
-      background: rgba(0,0,0,0.45);
-      color: white;
-      font-size: 18px;
-      font-weight: 700;
-      font-style: italic;
-      cursor: pointer;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
+      background: rgba(0,0,0,0.45); color: white;
+      font-size: 18px; font-weight: 700; font-style: italic;
+      cursor: pointer; display: none;
+      align-items: center; justify-content: center; z-index: 9999;
     }
-
     #btn-sol {
-      position: fixed;
-      left: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 2px solid rgba(255,255,255,0.6);
-      background: rgba(0,0,0,0.3);
-      color: white;
-      font-size: 28px;
-      cursor: pointer;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
+      position: fixed; left: 16px; top: 50%; transform: translateY(-50%);
+      width: 48px; height: 48px; border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.6); background: rgba(0,0,0,0.3);
+      color: white; font-size: 28px; cursor: pointer; display: none;
+      align-items: center; justify-content: center; z-index: 9999;
     }
-
     #btn-sag {
-      position: fixed;
-      right: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 2px solid rgba(255,255,255,0.6);
-      background: rgba(0,0,0,0.3);
-      color: white;
-      font-size: 28px;
-      cursor: pointer;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
+      position: fixed; right: 16px; top: 50%; transform: translateY(-50%);
+      width: 48px; height: 48px; border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.6); background: rgba(0,0,0,0.3);
+      color: white; font-size: 28px; cursor: pointer; display: none;
+      align-items: center; justify-content: center; z-index: 9999;
     }
-
     #urun-panel {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      z-index: 9999;
+      position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+      display: none; flex-direction: column; align-items: center; gap: 6px; z-index: 9999;
     }
-
     #urun-adi {
-      background: rgba(0,0,0,0.5);
-      color: #e8c96d;
-      padding: 6px 18px;
-      border-radius: 20px;
-      font-size: 14px;
-      font-weight: 600;
-      text-align: center;
-      white-space: nowrap;
-      max-width: 70vw;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      background: rgba(0,0,0,0.5); color: #e8c96d;
+      padding: 6px 18px; border-radius: 20px; font-size: 14px; font-weight: 600;
+      text-align: center; max-width: 70vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
     }
-
     #urun-fiyat {
-      background: rgba(232,201,109,0.85);
-      color: #1a1a2e;
-      padding: 3px 14px;
-      border-radius: 20px;
-      font-size: 13px;
-      font-weight: 700;
+      background: rgba(232,201,109,0.85); color: #1a1a2e;
+      padding: 3px 14px; border-radius: 20px; font-size: 13px; font-weight: 700;
     }
-
     #kategori-wrapper {
-      position: fixed;
-      bottom: 16px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 92vw;
-      max-width: 420px;
-      background: rgba(0,0,0,0.6);
-      border-radius: 20px;
-      padding: 10px 8px;
-      display: none;
-      z-index: 9999;
-      backdrop-filter: blur(6px);
+      position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%);
+      width: 92vw; max-width: 420px;
+      background: rgba(0,0,0,0.6); border-radius: 20px; padding: 10px 8px;
+      display: none; z-index: 9999; backdrop-filter: blur(6px);
       border: 1px solid rgba(255,255,255,0.15);
     }
-
     #kategori-menu {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 5px;
-      width: 100%;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; width: 100%;
     }
-
     .kategori-btn {
-      padding: 7px 2px;
-      border-radius: 10px;
+      padding: 7px 2px; border-radius: 10px;
       border: 1.5px solid rgba(255,255,255,0.4);
-      background: rgba(255,255,255,0.08);
-      color: white;
-      font-size: 10px;
-      cursor: pointer;
-      text-align: center;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      width: 100%;
+      background: rgba(255,255,255,0.08); color: white;
+      font-size: 10px; cursor: pointer; text-align: center;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%;
     }
-
     .kategori-btn.aktif {
-      background: #e8c96d;
-      color: #1a1a2e;
-      border-color: #e8c96d;
-      font-weight: 600;
+      background: #e8c96d; color: #1a1a2e; border-color: #e8c96d; font-weight: 600;
     }
-
     #info-modal {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: rgba(20,20,40,0.97);
-      border: 2px solid #e8c96d;
-      border-radius: 20px;
-      padding: 24px 20px;
-      width: 85vw;
-      max-width: 360px;
-      z-index: 99999;
-      display: none;
-      flex-direction: column;
-      gap: 12px;
-      max-height: 80vh;
-      overflow-y: auto;
+      position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      background: rgba(20,20,40,0.97); border: 2px solid #e8c96d;
+      border-radius: 20px; padding: 24px 20px; width: 85vw; max-width: 360px;
+      z-index: 99999; display: none; flex-direction: column; gap: 12px;
+      max-height: 80vh; overflow-y: auto;
     }
-
     #info-modal h2 { color: #e8c96d; font-size: 17px; text-align: center; font-weight: 600; }
     #info-modal .fiyat { color: white; font-size: 22px; font-weight: 700; text-align: center; }
     #info-modal .ayrac { height: 1px; background: rgba(232,201,109,0.3); }
     #info-modal .icerik-baslik { color: #e8c96d; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; }
     #info-modal .icerik { color: rgba(255,255,255,0.85); font-size: 13px; line-height: 1.7; }
-
     #hedef-mesaj {
-      position: fixed;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0,0,0,0.65);
-      color: white;
-      padding: 12px 24px;
-      border-radius: 24px;
-      font-size: 13px;
-      z-index: 9999;
-      text-align: center;
-      display: block;
-      white-space: nowrap;
+      position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%);
+      background: rgba(0,0,0,0.65); color: white; padding: 12px 24px;
+      border-radius: 24px; font-size: 13px; z-index: 9999; text-align: center;
+      display: block; white-space: nowrap;
     }
   </style>
 </head>
 <body>
 
   <a-scene mindar-image="imageTargetSrc: ./targets.mind; autoStart: true; filterMinCF: 0.0001; filterBeta: 0.0001; missTolerance: 10; warmupTolerance: 5"
-           color-space="sRGB"
-           renderer="colorManagement: true"
-           vr-mode-ui="enabled: false"
-           device-orientation-permission-ui="enabled: false">
+           color-space="sRGB" renderer="colorManagement: true"
+           vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
 
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
     <a-entity mindar-image-target="targetIndex: 0">
-      <a-entity id="c0" class="model-container" visible="false" rotation="90 0 0">
+
+      <!-- KAHVALTI -->
+      <a-entity id="serpme_kahvalti" class="model-container" visible="false" rotation="90 0 0">
         <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
-          <a-gltf-model src="./models/chocolate_muffin.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+          <a-gltf-model src="./models/serpme_kahvalti.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
         </a-entity>
       </a-entity>
-    </a-entity>
+      <a-entity id="omlet" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/omlet.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="menemen" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/menemen.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="sucuklu_yumurta" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/sucuklu_yumurta.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="peynir_tabagi" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/peynir_tabagi.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="sucuk_tava" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/sucuk_tava.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="soslu_sosis" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/soslu_sosis.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="senin_kahvaltin" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/senin_kahvaltin.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
 
+      <!-- ATIŞTIRMALIK -->
+      <a-entity id="kombo_tabagi" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/kombo_tabagi.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="cheddarly_patates" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/cheddarly_patates.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="parmak_patates" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/parmak_patates.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="lima_tost" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/lima_tost.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="karisik_tost" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/karisik_tost.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="sebzeli_tost" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/sebzeli_tost.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+
+      <!-- BURGER -->
+      <a-entity id="focus_beef_burger" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/focus_beef_burger.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="bbq_beef_burger" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/bbq_beef_burger.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="cheese_beef_burger" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/cheese_beef_burger.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="klasik_et_burger" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/klasik_et_burger.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="truffle_chicken_burger" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/truffle_chicken_burger.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="bbq_chicken_burger" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/bbq_chicken_burger.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="chilly_honey_burger" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/chilly_honey_burger.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+
+      <!-- PİZZA -->
+      <a-entity id="klasik_pizza" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/klasik_pizza.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="margarita_pizza" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/margarita_pizza.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="gamer_pizza" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/gamer_pizza.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="tantuni_pizza" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/tantuni_pizza.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="ton_balikli_pizza" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/ton_balikli_pizza.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="bbq_tavuklu_pizza" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/bbq_tavuklu_pizza.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+
+      <!-- ET -->
+      <a-entity id="dana_fajita" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/dana_fajita.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="dana_lokum_bonfile" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/dana_lokum_bonfile.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="mexican_beef" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/mexican_beef.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="kasap_kofte" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/kasap_kofte.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="diane_beef" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/diane_beef.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="beef_stroganoff" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/beef_stroganoff.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+
+      <!-- TAVUK -->
+      <a-entity id="tavuk_tornado" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/tavuk_tornado.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="cajun_tavuk" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/cajun_tavuk.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="tavuk_fajita" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/tavuk_fajita.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="kekikli_tavuk" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/kekikli_tavuk.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="snitzel" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/snitzel.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="kori_tavuk" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/kori_tavuk.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="kremali_mantarli_tavuk" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/kremali_mantarli_tavuk.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="sriracha_tavuk" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/sriracha_tavuk.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+
+      <!-- TATLILAR -->
+      <a-entity id="waffle" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/waffle.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="black_white_waffle" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/black_white_waffle.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="suffle" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/suffle.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="profiterol" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/profiterol.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="tiramisu" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/tiramisu.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="trilece" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/trilece.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="san_sebastian" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/san_sebastian.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="lotus_cheesecake" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/lotus_cheesecake.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="brownie" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/brownie.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="dondurma" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/dondurma.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+
+      <!-- İÇECEKLER -->
+      <a-entity id="espresso" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/espresso.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="cappuccino" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/cappuccino.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="mocha" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/mocha.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="caffe_latte" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/caffe_latte.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="ice_latte" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/ice_latte.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="frappuccino" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/frappuccino.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="milkshake" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/milkshake.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="limonata" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/limonata.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="turk_kahvesi" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/turk_kahvesi.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="sicak_cikolata" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/sicak_cikolata.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="ayran" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/ayran.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+      <a-entity id="cay" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/cay.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+
+    </a-entity>
   </a-scene>
 
   <button id="info-btn" onclick="infoToggle()">i</button>
@@ -245,83 +465,83 @@
   <script>
     const menu = {
       kahvalti: [
-        { ad: 'Lima Serpme Kahvaltı', fiyat: '650 ₺', icerik: 'Sahanda yumurta, 5 çeşit peynir, zeytin, salatalık, domates, yeşillik, acuka, bal, tereyağı, çikolata, reçel, parmak patates, pişi, biberli ekmek, çay' },
-        { ad: 'Senin Kahvaltın', fiyat: '550 ₺', icerik: 'Haşlanmış yumurta, 5 çeşit peynir, zeytin tabağı, domates, salatalık, bal, tereyağı, sürk, çilek reçeli, biberli ekmek, 2 adet çay' },
-        { ad: 'Peynir Tabağı', fiyat: '240 ₺', icerik: '5 çeşit peynir' },
-        { ad: 'Menemen', fiyat: '200 ₺', icerik: 'Domates, biber, yumurta, baharat' },
-        { ad: 'Sucuklu Yumurta', fiyat: '220 ₺', icerik: 'Sucuk, yumurta' },
-        { ad: 'Sebzeli Omlet', fiyat: '180 ₺', icerik: 'Yumurta, sebze karışımı' },
-        { ad: 'Sucuk Tava', fiyat: '250 ₺', icerik: 'Dana sucuk' },
-        { ad: 'Soslu Sosis', fiyat: '200 ₺', icerik: 'Sosis, özel sos' },
+        { containerId: 'serpme_kahvalti', ad: 'Lima Serpme Kahvaltı', fiyat: '650 ₺', icerik: 'Sahanda yumurta, 5 çeşit peynir, zeytin, salatalık, domates, yeşillik, acuka, bal, tereyağı, reçel, parmak patates, pişi, biberli ekmek, çay' },
+        { containerId: 'senin_kahvaltin', ad: 'Senin Kahvaltın', fiyat: '550 ₺', icerik: 'Haşlanmış yumurta, 5 çeşit peynir, zeytin tabağı, domates, salatalık, bal, tereyağı, sürk, çilek reçeli, biberli ekmek, 2 adet çay' },
+        { containerId: 'peynir_tabagi', ad: 'Peynir Tabağı', fiyat: '240 ₺', icerik: '5 çeşit peynir' },
+        { containerId: 'menemen', ad: 'Menemen', fiyat: '200 ₺', icerik: 'Domates, biber, yumurta, baharat' },
+        { containerId: 'sucuklu_yumurta', ad: 'Sucuklu Yumurta', fiyat: '220 ₺', icerik: 'Sucuk, yumurta' },
+        { containerId: 'omlet', ad: 'Sebzeli Omlet', fiyat: '180 ₺', icerik: 'Yumurta, sebze karışımı' },
+        { containerId: 'sucuk_tava', ad: 'Sucuk Tava', fiyat: '250 ₺', icerik: 'Dana sucuk' },
+        { containerId: 'soslu_sosis', ad: 'Soslu Sosis', fiyat: '200 ₺', icerik: 'Sosis, özel sos' },
       ],
       atistirmalik: [
-        { ad: 'Kombo Tabağı', fiyat: '460 ₺', icerik: 'Parmak patates, soğan halkası, çıtır tavuk, sosis, stick mozarella, sebzeli muska, Lima özel sos (2-3 kişilik)' },
-        { ad: 'Cheddarlı Patates', fiyat: '370 ₺', icerik: 'Parmak patates, cheddar sos' },
-        { ad: 'Parmak Patates', fiyat: '280 ₺', icerik: 'Çıtır parmak patates' },
-        { ad: 'Lima Özel Tost', fiyat: '390 ₺', icerik: 'Sucuk, sosis, mantar, kırmızı biber, alman turşusu' },
-        { ad: 'Karışık Tost', fiyat: '390 ₺', icerik: 'Sucuk, kaşar, domates, alman turşusu, ketçap' },
-        { ad: 'Sebzeli Tost', fiyat: '360 ₺', icerik: 'Yeşil biber, kırmızı biber, mısır, mantar, siyah zeytin, kaşar' },
+        { containerId: 'kombo_tabagi', ad: 'Kombo Tabağı', fiyat: '460 ₺', icerik: 'Parmak patates, soğan halkası, çıtır tavuk, sosis, stick mozarella, sebzeli muska, Lima özel sos (2-3 kişilik)' },
+        { containerId: 'cheddarly_patates', ad: 'Cheddarlı Patates', fiyat: '370 ₺', icerik: 'Parmak patates, cheddar sos' },
+        { containerId: 'parmak_patates', ad: 'Parmak Patates', fiyat: '280 ₺', icerik: 'Çıtır parmak patates' },
+        { containerId: 'lima_tost', ad: 'Lima Özel Tost', fiyat: '390 ₺', icerik: 'Sucuk, sosis, mantar, kırmızı biber, alman turşusu' },
+        { containerId: 'karisik_tost', ad: 'Karışık Tost', fiyat: '390 ₺', icerik: 'Sucuk, kaşar, domates, alman turşusu, ketçap' },
+        { containerId: 'sebzeli_tost', ad: 'Sebzeli Tost', fiyat: '360 ₺', icerik: 'Yeşil biber, kırmızı biber, mısır, mantar, siyah zeytin, kaşar' },
       ],
       burger: [
-        { ad: 'Focus Beef Burger', fiyat: '440 ₺', icerik: '120gr dana burger, karamelize soğan, kibrit patates, dana jambon, trüflü mayonez, parmak patates' },
-        { ad: 'BBQ Beef Burger', fiyat: '440 ₺', icerik: '120gr dana burger, karamelize soğan, domates, turşu, parmak patates' },
-        { ad: 'Cheese Beef Burger', fiyat: '440 ₺', icerik: '120gr dana burger, cheddar peyniri, dana jambon, karamelize soğan, parmak patates' },
-        { ad: 'Klasik Et Burger', fiyat: '420 ₺', icerik: '120gr dana burger, marul, domates, turşu, ketçap, mayonez, parmak patates' },
-        { ad: 'Lima Trüffle Chicken Burger', fiyat: '400 ₺', icerik: '160gr tavuk burger, karamelize soğan, kibrit patates, turşu, trüflü mayonez, parmak patates' },
-        { ad: 'BBQ Chicken Burger', fiyat: '400 ₺', icerik: '160gr tavuk burger, barbekü sos, cheddar peyniri, marul, turşu, parmak patates' },
-        { ad: 'Chilly Honey Chicken Burger', fiyat: '400 ₺', icerik: '160gr tavuk burger, sweet chili sos, cheddar peyniri, marul, turşu, parmak patates' },
+        { containerId: 'focus_beef_burger', ad: 'Focus Beef Burger', fiyat: '440 ₺', icerik: '120gr dana burger, karamelize soğan, kibrit patates, dana jambon, trüflü mayonez, parmak patates' },
+        { containerId: 'bbq_beef_burger', ad: 'BBQ Beef Burger', fiyat: '440 ₺', icerik: '120gr dana burger, karamelize soğan, domates, turşu, parmak patates' },
+        { containerId: 'cheese_beef_burger', ad: 'Cheese Beef Burger', fiyat: '440 ₺', icerik: '120gr dana burger, cheddar peyniri, dana jambon, karamelize soğan, parmak patates' },
+        { containerId: 'klasik_et_burger', ad: 'Klasik Et Burger', fiyat: '420 ₺', icerik: '120gr dana burger, marul, domates, turşu, ketçap, mayonez, parmak patates' },
+        { containerId: 'truffle_chicken_burger', ad: 'Lima Trüffle Chicken Burger', fiyat: '400 ₺', icerik: '160gr tavuk burger, karamelize soğan, kibrit patates, turşu, trüflü mayonez, parmak patates' },
+        { containerId: 'bbq_chicken_burger', ad: 'BBQ Chicken Burger', fiyat: '400 ₺', icerik: '160gr tavuk burger, barbekü sos, cheddar peyniri, marul, turşu, parmak patates' },
+        { containerId: 'chilly_honey_burger', ad: 'Chilly Honey Chicken Burger', fiyat: '400 ₺', icerik: '160gr tavuk burger, sweet chili sos, cheddar peyniri, marul, turşu, parmak patates' },
       ],
       pizza: [
-        { ad: 'Klasik Pizza', fiyat: '580 ₺', icerik: 'Sucuk, sosis, salam, mantar, mısır, yeşil biber, kırmızı biber, siyah zeytin, pizza sos' },
-        { ad: 'Margarita', fiyat: '560 ₺', icerik: 'Mozzarella peynir, pesto sos, cherry domates' },
-        { ad: 'Gamer Pizza', fiyat: '580 ₺', icerik: 'Sucuk, sosis, salam, mısır' },
-        { ad: 'Tantuni Pizza', fiyat: '720 ₺', icerik: 'Dana bonfile, yeşil biber, kırmızı biber, maydanoz' },
-        { ad: 'Ton Balıklı Pizza', fiyat: '580 ₺', icerik: 'Ton balığı, kırmızı biber, yeşil biber, mısır' },
-        { ad: 'BBQ Tavuklu Pizza', fiyat: '640 ₺', icerik: '180gr tavuk, mozzarella, kırmızı biber, yeşil biber, barbekü sos' },
+        { containerId: 'klasik_pizza', ad: 'Klasik Pizza', fiyat: '580 ₺', icerik: 'Sucuk, sosis, salam, mantar, mısır, yeşil biber, kırmızı biber, siyah zeytin, pizza sos' },
+        { containerId: 'margarita_pizza', ad: 'Margarita', fiyat: '560 ₺', icerik: 'Mozzarella peynir, pesto sos, cherry domates' },
+        { containerId: 'gamer_pizza', ad: 'Gamer Pizza', fiyat: '580 ₺', icerik: 'Sucuk, sosis, salam, mısır' },
+        { containerId: 'tantuni_pizza', ad: 'Tantuni Pizza', fiyat: '720 ₺', icerik: 'Dana bonfile, yeşil biber, kırmızı biber, maydanoz' },
+        { containerId: 'ton_balikli_pizza', ad: 'Ton Balıklı Pizza', fiyat: '580 ₺', icerik: 'Ton balığı, kırmızı biber, yeşil biber, mısır' },
+        { containerId: 'bbq_tavuklu_pizza', ad: 'BBQ Tavuklu Pizza', fiyat: '640 ₺', icerik: '180gr tavuk, mozzarella, kırmızı biber, yeşil biber, barbekü sos' },
       ],
       et: [
-        { ad: 'Dana Fajita', fiyat: '780 ₺', icerik: 'Dana bonfile' },
-        { ad: 'Dana Lokum Bonfile', fiyat: '780 ₺', icerik: 'Patates püresi yatağında, sebze garnitür eşliğinde' },
-        { ad: 'Mexican Beef 🌶', fiyat: '780 ₺', icerik: 'Dana bonfile, Meksika fasülyesi, mantar, soğan, kırmızı biber, acı sos, krema, demi glace sos, patates püresi' },
-        { ad: 'Kasap Köfte', fiyat: '640 ₺', icerik: 'Pirinç pilavı, parmak patates eşliğinde' },
-        { ad: 'Diane Beef', fiyat: '780 ₺', icerik: 'Dana bonfile, dana jambon, mantar, soğan, yeşil biber, krema, demi glace sos, patates püresi' },
-        { ad: 'Beef Stroganoff', fiyat: '780 ₺', icerik: 'Jülyen dana bonfile, mantar, soğan, salatalık turşusu, krema, demi glace sos, patates püresi' },
+        { containerId: 'dana_fajita', ad: 'Dana Fajita', fiyat: '780 ₺', icerik: 'Dana bonfile' },
+        { containerId: 'dana_lokum_bonfile', ad: 'Dana Lokum Bonfile', fiyat: '780 ₺', icerik: 'Patates püresi yatağında, sebze garnitür eşliğinde' },
+        { containerId: 'mexican_beef', ad: 'Mexican Beef 🌶', fiyat: '780 ₺', icerik: 'Dana bonfile, Meksika fasülyesi, mantar, soğan, kırmızı biber, acı sos, krema, patates püresi' },
+        { containerId: 'kasap_kofte', ad: 'Kasap Köfte', fiyat: '640 ₺', icerik: 'Pirinç pilavı, parmak patates eşliğinde' },
+        { containerId: 'diane_beef', ad: 'Diane Beef', fiyat: '780 ₺', icerik: 'Dana bonfile, dana jambon, mantar, soğan, yeşil biber, krema, demi glace sos, patates püresi' },
+        { containerId: 'beef_stroganoff', ad: 'Beef Stroganoff', fiyat: '780 ₺', icerik: 'Jülyen dana bonfile, mantar, soğan, salatalık turşusu, krema, patates püresi' },
       ],
       tavuk: [
-        { ad: 'Tavuk Tornado 🌶', fiyat: '580 ₺', icerik: 'Izgara tavuk, mozzarella, soğan, mantar, krema, acı sos' },
-        { ad: 'Cajun Soslu Tavuk', fiyat: '580 ₺', icerik: 'Makarna, mix salata eşliğinde' },
-        { ad: 'Tavuk Fajita', fiyat: '580 ₺', icerik: 'Izgara tavuk, biber, soğan, özel sos' },
-        { ad: 'Taze Kekikli Tavuk Izgara', fiyat: '580 ₺', icerik: 'Parmak patates, mix salata eşliğinde' },
-        { ad: 'Snitzel', fiyat: '580 ₺', icerik: 'Parmak patates ve Lima özel sos eşliğinde' },
-        { ad: 'Köri Soslu Tavuk', fiyat: '580 ₺', icerik: 'Makarna, mix salata eşliğinde' },
-        { ad: 'Kremalı Mantarlı Tavuk', fiyat: '580 ₺', icerik: 'Makarna, mix salata eşliğinde' },
-        { ad: 'Sriracha Soslu Tavuk 🌶', fiyat: '580 ₺', icerik: 'Makarna, mix salata eşliğinde' },
+        { containerId: 'tavuk_tornado', ad: 'Tavuk Tornado 🌶', fiyat: '580 ₺', icerik: 'Izgara tavuk, mozzarella, soğan, mantar, krema, acı sos' },
+        { containerId: 'cajun_tavuk', ad: 'Cajun Soslu Tavuk', fiyat: '580 ₺', icerik: 'Makarna, mix salata eşliğinde' },
+        { containerId: 'tavuk_fajita', ad: 'Tavuk Fajita', fiyat: '580 ₺', icerik: 'Izgara tavuk, biber, soğan, özel sos' },
+        { containerId: 'kekikli_tavuk', ad: 'Taze Kekikli Tavuk Izgara', fiyat: '580 ₺', icerik: 'Parmak patates, mix salata eşliğinde' },
+        { containerId: 'snitzel', ad: 'Snitzel', fiyat: '580 ₺', icerik: 'Parmak patates ve Lima özel sos eşliğinde' },
+        { containerId: 'kori_tavuk', ad: 'Köri Soslu Tavuk', fiyat: '580 ₺', icerik: 'Makarna, mix salata eşliğinde' },
+        { containerId: 'kremali_mantarli_tavuk', ad: 'Kremalı Mantarlı Tavuk', fiyat: '580 ₺', icerik: 'Makarna, mix salata eşliğinde' },
+        { containerId: 'sriracha_tavuk', ad: 'Sriracha Soslu Tavuk 🌶', fiyat: '580 ₺', icerik: 'Makarna, mix salata eşliğinde' },
       ],
       tatlilar: [
-        { ad: 'Waffle', fiyat: '460 ₺', icerik: 'Muz, çilek, kavrulmuş fıstık, toz fıstık' },
-        { ad: 'Black White Waffle', fiyat: '480 ₺', icerik: 'Muz, çilek, ananas, kavrulmuş fıstık, toz fıstık' },
-        { ad: 'Suffle', fiyat: '380 ₺', icerik: 'Dondurma ile servis edilir' },
-        { ad: 'Profiterol', fiyat: '320 ₺', icerik: 'Choux hamuru, çikolata sos, dondurma' },
-        { ad: 'Tiramisu', fiyat: '320 ₺', icerik: 'Mascarpone, kahve, kakao, bisküvi' },
-        { ad: 'Trileçe', fiyat: '300 ₺', icerik: 'Üç sütlü ıslak pasta' },
-        { ad: 'San Sebastian', fiyat: '370 ₺', icerik: 'Çikolata ile servis edilir' },
-        { ad: 'Lotus Cheesecake', fiyat: '350 ₺', icerik: 'Lotus bisküvi, krem peynir, lotus sos' },
-        { ad: 'Brownie', fiyat: '320 ₺', icerik: 'Dondurmalı, çikolatalı kek' },
-        { ad: 'Dondurma Porsiyon', fiyat: '360 ₺', icerik: '4 top dondurma — sade, çikolata, çilek, karamel ve daha fazlası' },
+        { containerId: 'waffle', ad: 'Waffle', fiyat: '460 ₺', icerik: 'Muz, çilek, kavrulmuş fıstık, toz fıstık' },
+        { containerId: 'black_white_waffle', ad: 'Black White Waffle', fiyat: '480 ₺', icerik: 'Muz, çilek, ananas, kavrulmuş fıstık, toz fıstık' },
+        { containerId: 'suffle', ad: 'Suffle', fiyat: '380 ₺', icerik: 'Dondurma ile servis edilir' },
+        { containerId: 'profiterol', ad: 'Profiterol', fiyat: '320 ₺', icerik: 'Choux hamuru, çikolata sos, dondurma' },
+        { containerId: 'tiramisu', ad: 'Tiramisu', fiyat: '320 ₺', icerik: 'Mascarpone, kahve, kakao, bisküvi' },
+        { containerId: 'trilece', ad: 'Trileçe', fiyat: '300 ₺', icerik: 'Üç sütlü ıslak pasta' },
+        { containerId: 'san_sebastian', ad: 'San Sebastian', fiyat: '370 ₺', icerik: 'Çikolata ile servis edilir' },
+        { containerId: 'lotus_cheesecake', ad: 'Lotus Cheesecake', fiyat: '350 ₺', icerik: 'Lotus bisküvi, krem peynir, lotus sos' },
+        { containerId: 'brownie', ad: 'Brownie', fiyat: '320 ₺', icerik: 'Dondurmalı, çikolatalı kek' },
+        { containerId: 'dondurma', ad: 'Dondurma Porsiyon', fiyat: '360 ₺', icerik: '4 top dondurma — sade, çikolata, çilek, karamel ve daha fazlası' },
       ],
       icecekler: [
-        { ad: 'Espresso', fiyat: '130 ₺', icerik: 'Saf espresso' },
-        { ad: 'Cappuccino', fiyat: '200 ₺', icerik: 'Espresso, buharla ısıtılmış süt, süt köpüğü' },
-        { ad: 'Mocha', fiyat: '230 ₺', icerik: 'Espresso, çikolata sosu, süt' },
-        { ad: 'Caffe Latte', fiyat: '230 ₺', icerik: 'Espresso, süt kreması' },
-        { ad: 'Ice Latte', fiyat: '230 ₺', icerik: 'Espresso, soğuk süt, buz' },
-        { ad: 'Frappuccino', fiyat: '230 ₺', icerik: 'Buzlu kahve, süt, şurup' },
-        { ad: 'Chocolate Milkshake', fiyat: '240 ₺', icerik: 'Çikolatalı dondurma, süt' },
-        { ad: 'Limonata', fiyat: '200 ₺', icerik: 'Taze limon, su, şeker' },
-        { ad: 'Türk Kahvesi', fiyat: '120 ₺', icerik: 'Geleneksel Türk kahvesi' },
-        { ad: 'Sıcak Çikolata', fiyat: '230 ₺', icerik: 'Bitter çikolata, sıcak süt' },
-        { ad: 'Ayran', fiyat: '100 ₺', icerik: 'Yoğurt, su, tuz' },
-        { ad: 'Çay', fiyat: '60 ₺', icerik: 'Türk çayı' },
+        { containerId: 'espresso', ad: 'Espresso', fiyat: '130 ₺', icerik: 'Saf espresso' },
+        { containerId: 'cappuccino', ad: 'Cappuccino', fiyat: '200 ₺', icerik: 'Espresso, buharla ısıtılmış süt, süt köpüğü' },
+        { containerId: 'mocha', ad: 'Mocha', fiyat: '230 ₺', icerik: 'Espresso, çikolata sosu, süt' },
+        { containerId: 'caffe_latte', ad: 'Caffe Latte', fiyat: '230 ₺', icerik: 'Espresso, süt kreması' },
+        { containerId: 'ice_latte', ad: 'Ice Latte', fiyat: '230 ₺', icerik: 'Espresso, soğuk süt, buz' },
+        { containerId: 'frappuccino', ad: 'Frappuccino', fiyat: '230 ₺', icerik: 'Buzlu kahve, süt, şurup' },
+        { containerId: 'milkshake', ad: 'Milkshake', fiyat: '240 ₺', icerik: 'Dondurma, süt — çikolata, çilek veya vanilyalı' },
+        { containerId: 'limonata', ad: 'Limonata', fiyat: '200 ₺', icerik: 'Taze limon, su, şeker' },
+        { containerId: 'turk_kahvesi', ad: 'Türk Kahvesi', fiyat: '120 ₺', icerik: 'Geleneksel Türk kahvesi' },
+        { containerId: 'sicak_cikolata', ad: 'Sıcak Çikolata', fiyat: '230 ₺', icerik: 'Bitter çikolata, sıcak süt' },
+        { containerId: 'ayran', ad: 'Ayran', fiyat: '100 ₺', icerik: 'Yoğurt, su, tuz' },
+        { containerId: 'cay', ad: 'Çay', fiyat: '60 ₺', icerik: 'Türk çayı' },
       ]
     }
 
@@ -359,11 +579,9 @@
 
     function urunGoster(index) {
       tumModellerGizle()
-      // Şimdilik hepsi muffin modeli
-      const c0 = document.getElementById('c0')
-      if (c0) c0.setAttribute('visible', true)
-
       const urun = menu[mevcutKategori][index]
+      const el = document.getElementById(urun.containerId)
+      if (el) el.setAttribute('visible', true)
       document.getElementById('urun-adi').textContent = urun.ad
       document.getElementById('urun-fiyat').textContent = urun.fiyat
       document.getElementById('modal-adi').textContent = urun.ad
