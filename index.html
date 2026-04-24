@@ -189,26 +189,44 @@
 
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-<a-entity mindar-image-target="targetIndex: 0">
-  <a-entity 
-    id="muffin_container"
-    visible="false"
-    rotation="90 0 0">
-    
-    <a-entity 
-      animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
-      
-      <a-gltf-model 
-        id="m0"
-        src="./models/chocolate_muffin.glb" 
-        scale="0.2 0.2 0.2" 
-        position="0 0 0">
-      </a-gltf-model>
+    <a-entity mindar-image-target="targetIndex: 0">
+
+      <!-- Muffin -->
+      <a-entity id="c0" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/chocolate_muffin.glb" scale="0.2 0.2 0.2" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+
+      <!-- Cookie -->
+      <a-entity id="c1" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/cookie.glb" scale="0.2 0.2 0.2" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+
+      <!-- Donut White -->
+      <a-entity id="c2" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/donut_white.glb" scale="0.2 0.2 0.2" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+
+      <!-- Donut Color -->
+      <a-entity id="c3" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/donut_color.glb" scale="0.2 0.2 0.2" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
+
+      <!-- Sakura Cake Roll -->
+      <a-entity id="c4" class="model-container" visible="false" rotation="90 0 0">
+        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
+          <a-gltf-model src="./models/sakura_cake_roll.glb" scale="0.2 0.2 0.2" position="0 0 0"></a-gltf-model>
+        </a-entity>
+      </a-entity>
 
     </a-entity>
-  </a-entity>
-
-</a-entity>
 
   </a-scene>
 
@@ -243,11 +261,11 @@
   <script>
     const menu = {
       tatlilar: [
-        { modelId: 'm0', scale: '0.05 0.05 0.05', ad: 'Chocolate Muffin', fiyat: '45 ₺', icerik: 'Çikolata, un, yumurta, süt, tereyağı, kabartma tozu, şeker, kakao' },
-        { modelId: 'm1', scale: '0.05 0.05 0.05', ad: 'Cookie',           fiyat: '35 ₺', icerik: 'Un, şeker, çikolata parçaları, tereyağı, yumurta, vanilya, tuz' },
-        { modelId: 'm2', scale: '0.08 0.08 0.08', ad: 'Donut White',      fiyat: '40 ₺', icerik: 'Un, şeker, süt, maya, tereyağı, beyaz glazür, pudra şekeri' },
-        { modelId: 'm3', scale: '0.08 0.08 0.08', ad: 'Renkli Donut',     fiyat: '45 ₺', icerik: 'Un, şeker, süt, maya, tereyağı, renkli glazür, şeker sprinkle' },
-        { modelId: 'm4', scale: '0.08 0.08 0.08', ad: 'Sakura Cake Roll', fiyat: '55 ₺', icerik: 'Pandispanya, çırpılmış krema, çilek, sakura esansı, pudra şekeri' }
+        { containerId: 'c0', ad: 'Chocolate Muffin', fiyat: '45 ₺', icerik: 'Çikolata, un, yumurta, süt, tereyağı, kabartma tozu, şeker, kakao' },
+        { containerId: 'c1', ad: 'Cookie',           fiyat: '35 ₺', icerik: 'Un, şeker, çikolata parçaları, tereyağı, yumurta, vanilya, tuz' },
+        { containerId: 'c2', ad: 'Donut White',      fiyat: '40 ₺', icerik: 'Un, şeker, süt, maya, tereyağı, beyaz glazür, pudra şekeri' },
+        { containerId: 'c3', ad: 'Renkli Donut',     fiyat: '45 ₺', icerik: 'Un, şeker, süt, maya, tereyağı, renkli glazür, şeker sprinkle' },
+        { containerId: 'c4', ad: 'Sakura Cake Roll', fiyat: '55 ₺', icerik: 'Pandispanya, çırpılmış krema, çilek, sakura esansı, pudra şekeri' }
       ]
     }
 
@@ -265,17 +283,16 @@
     })
 
     function tumModellerGizle() {
-      for (let i = 0; i <= 4; i++) {
-        const el = document.getElementById('m' + i)
-        if (el) el.setAttribute('scale', '0 0 0')
-      }
+      document.querySelectorAll('.model-container').forEach(el => {
+        el.setAttribute('visible', false)
+      })
     }
 
     function urunGoster(index) {
       tumModellerGizle()
       const urun = menu[mevcutKategori][index]
-      const el = document.getElementById(urun.modelId)
-      if (el) el.setAttribute('scale', urun.scale)
+      const el = document.getElementById(urun.containerId)
+      if (el) el.setAttribute('visible', true)
       document.getElementById('urun-adi').textContent = urun.ad
       document.getElementById('urun-fiyat').textContent = urun.fiyat
       document.getElementById('modal-adi').textContent = urun.ad
