@@ -25,15 +25,30 @@
   </a-scene>
 
   <button onclick="gec()" style="position:fixed;bottom:40px;right:20px;padding:20px;font-size:20px;z-index:9999">▶</button>
-  <div id="log" style="position:fixed;top:10px;left:10px;background:rgba(0,0,0,0.7);color:lime;padding:10px;z-index:9999;font-size:14px"></div>
+  <div id="log" style="position:fixed;top:10px;left:10px;background:rgba(0,0,0,0.7);color:lime;padding:10px;z-index:9999;font-size:14px">Yükleniyor...</div>
 
   <script>
     let index = 0
 
+    // Model yükleme durumunu izle
+    window.addEventListener('load', () => {
+      const m0 = document.getElementById('m0')
+      const m1 = document.getElementById('m1')
+
+      m0.addEventListener('model-loaded', () => log('m0 yüklendi ✅'))
+      m0.addEventListener('model-error', () => log('m0 HATA ❌'))
+      m1.addEventListener('model-loaded', () => log('m1 yüklendi ✅'))
+      m1.addEventListener('model-error', () => log('m1 HATA ❌'))
+    })
+
+    function log(msg) {
+      document.getElementById('log').innerHTML += '<br>' + msg
+    }
+
     function gec() {
       const m0 = document.getElementById('m0')
       const m1 = document.getElementById('m1')
-      
+
       if (index === 0) {
         m0.setAttribute('scale', '0 0 0')
         m1.setAttribute('scale', '0.08 0.08 0.08')
@@ -43,7 +58,7 @@
         m0.setAttribute('scale', '0.08 0.08 0.08')
         index = 0
       }
-      document.getElementById('log').textContent = 'Model: ' + index
+      log('Aktif model: m' + index)
     }
   </script>
 </body>
