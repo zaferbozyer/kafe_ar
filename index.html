@@ -10,45 +10,74 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { overflow: hidden; font-family: 'Segoe UI', sans-serif; }
 
-    #kategori-menu {
+    /* Info butonu sol üst */
+    #info-btn {
       position: fixed;
       top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: none;
-      gap: 8px;
-      z-index: 9999;
-      flex-wrap: wrap;
-      justify-content: center;
-      max-width: 95vw;
-    }
-
-    .kategori-btn {
-      padding: 8px 14px;
-      border-radius: 20px;
-      border: 2px solid rgba(255,255,255,0.8);
-      background: rgba(0,0,0,0.6);
+      left: 20px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.9);
+      background: rgba(0,0,0,0.45);
       color: white;
-      font-size: 12px;
+      font-size: 18px;
+      font-weight: 700;
+      font-style: italic;
       cursor: pointer;
-      white-space: nowrap;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      backdrop-filter: blur(4px);
     }
 
-    .kategori-btn.aktif {
-      background: #e8c96d;
-      color: #1a1a2e;
-      border-color: #e8c96d;
-      font-weight: 600;
+    /* Sol ok */
+    #btn-sol {
+      position: fixed;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.6);
+      background: rgba(0,0,0,0.3);
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      backdrop-filter: blur(4px);
     }
 
-    .kategori-btn.yakinda {
-      opacity: 0.5;
-      cursor: not-allowed;
+    /* Sağ ok */
+    #btn-sag {
+      position: fixed;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.6);
+      background: rgba(0,0,0,0.3);
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      backdrop-filter: blur(4px);
     }
 
+    /* Ürün adı ve fiyat - ortada üstte */
     #urun-panel {
       position: fixed;
-      bottom: 30px;
+      top: 20px;
       left: 50%;
       transform: translateX(-50%);
       display: none;
@@ -59,117 +88,137 @@
     }
 
     #urun-adi {
-      background: rgba(0,0,0,0.75);
+      background: rgba(0,0,0,0.5);
       color: #e8c96d;
-      padding: 8px 20px;
+      padding: 6px 18px;
       border-radius: 20px;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 600;
       text-align: center;
+      backdrop-filter: blur(4px);
     }
 
     #urun-fiyat {
-      background: rgba(232,201,109,0.9);
+      background: rgba(232,201,109,0.85);
       color: #1a1a2e;
-      padding: 4px 16px;
+      padding: 3px 14px;
       border-radius: 20px;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
     }
 
-    #btn-sol {
+    /* Kategori slider - altta */
+    #kategori-menu {
       position: fixed;
-      left: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      border: none;
-      background: rgba(255,255,255,0.9);
-      font-size: 22px;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      bottom: 24px;
+      left: 0;
+      right: 0;
       display: none;
-      align-items: center;
-      justify-content: center;
+      gap: 10px;
       z-index: 9999;
+      overflow-x: auto;
+      padding: 0 16px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      justify-content: flex-start;
+      align-items: center;
     }
 
-    #btn-sag {
-      position: fixed;
-      right: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      border: none;
-      background: rgba(255,255,255,0.9);
-      font-size: 22px;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-    }
+    #kategori-menu::-webkit-scrollbar { display: none; }
 
-    #info-btn {
-      position: fixed;
-      right: 12px;
-      bottom: 30px;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      border: 2px solid rgba(255,255,255,0.9);
-      background: rgba(0,0,0,0.6);
+    .kategori-btn {
+      padding: 10px 16px;
+      border-radius: 24px;
+      border: 2px solid rgba(255,255,255,0.6);
+      background: rgba(0,0,0,0.4);
       color: white;
-      font-size: 20px;
-      font-weight: 700;
+      font-size: 13px;
       cursor: pointer;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
+      white-space: nowrap;
+      flex-shrink: 0;
+      backdrop-filter: blur(4px);
     }
 
+    .kategori-btn.aktif {
+      background: #e8c96d;
+      color: #1a1a2e;
+      border-color: #e8c96d;
+      font-weight: 600;
+    }
+
+    .kategori-btn.yakinda {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    /* Info modal */
     #info-modal {
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: rgba(26,26,46,0.97);
+      background: rgba(20,20,40,0.96);
       border: 2px solid #e8c96d;
-      border-radius: 16px;
-      padding: 24px;
+      border-radius: 20px;
+      padding: 28px 24px;
       width: 85vw;
       max-width: 340px;
       z-index: 99999;
       display: none;
       flex-direction: column;
-      gap: 12px;
+      gap: 14px;
+      backdrop-filter: blur(8px);
     }
 
-    #info-modal h2 { color: #e8c96d; font-size: 18px; text-align: center; }
-    #info-modal .fiyat { color: white; font-size: 22px; font-weight: 700; text-align: center; }
-    #info-modal .icerik-baslik { color: #e8c96d; font-size: 13px; font-weight: 600; letter-spacing: 1px; }
-    #info-modal .icerik { color: rgba(255,255,255,0.85); font-size: 14px; line-height: 1.6; }
+    #info-modal h2 {
+      color: #e8c96d;
+      font-size: 19px;
+      text-align: center;
+      font-weight: 600;
+    }
 
+    #info-modal .fiyat {
+      color: white;
+      font-size: 24px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    #info-modal .ayrac {
+      height: 1px;
+      background: rgba(232,201,109,0.3);
+    }
+
+    #info-modal .icerik-baslik {
+      color: #e8c96d;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    #info-modal .icerik {
+      color: rgba(255,255,255,0.85);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* Hedef mesajı */
     #hedef-mesaj {
       position: fixed;
       bottom: 40px;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(0,0,0,0.7);
+      background: rgba(0,0,0,0.65);
       color: white;
       padding: 12px 24px;
-      border-radius: 20px;
+      border-radius: 24px;
       font-size: 13px;
       z-index: 9999;
       text-align: center;
       display: block;
       white-space: nowrap;
+      backdrop-filter: blur(4px);
     }
   </style>
 </head>
@@ -191,52 +240,33 @@
 
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-    <a-entity mindar-image-target="targetIndex: 0">
-      <a-gltf-model id="ar-muffin" src="#muffin"
-        position="0 0.15 0" rotation="-90 0 0" scale="0.08 0.08 0.08" visible="false"
-        animation="property: rotation; from: -90 0 0; to: -90 360 0; loop: true; dur: 6000; easing: linear">
-      </a-gltf-model>
-      <a-gltf-model id="ar-cookie" src="#cookie"
-        position="0 0.15 0" rotation="-90 0 0" scale="0.08 0.08 0.08" visible="false"
-        animation="property: rotation; from: -90 0 0; to: -90 360 0; loop: true; dur: 6000; easing: linear">
-      </a-gltf-model>
-      <a-gltf-model id="ar-donut-white" src="#donut-white"
-        position="0 0.15 0" rotation="-90 0 0" scale="0.08 0.08 0.08" visible="false"
-        animation="property: rotation; from: -90 0 0; to: -90 360 0; loop: true; dur: 6000; easing: linear">
-      </a-gltf-model>
-      <a-gltf-model id="ar-donut-color" src="#donut-color"
-        position="0 0.15 0" rotation="-90 0 0" scale="0.08 0.08 0.08" visible="false"
-        animation="property: rotation; from: -90 0 0; to: -90 360 0; loop: true; dur: 6000; easing: linear">
-      </a-gltf-model>
-      <a-gltf-model id="ar-sakura" src="#sakura"
-        position="0 0.15 0" rotation="-90 0 0" scale="0.08 0.08 0.08" visible="false"
-        animation="property: rotation; from: -90 0 0; to: -90 360 0; loop: true; dur: 6000; easing: linear">
-      </a-gltf-model>
+    <a-entity id="ar-container" mindar-image-target="targetIndex: 0">
     </a-entity>
 
   </a-scene>
+
+  <button id="info-btn" onclick="infoToggle()">i</button>
+  <button id="btn-sol" onclick="oncekiUrun()">&#8249;</button>
+  <button id="btn-sag" onclick="sonrakiUrun()">&#8250;</button>
+
+  <div id="urun-panel">
+    <div id="urun-adi"></div>
+    <div id="urun-fiyat"></div>
+  </div>
 
   <div id="kategori-menu">
     <button class="kategori-btn yakinda" onclick="yakindaMesaj()">☕ Sıcak İçecek</button>
     <button class="kategori-btn yakinda" onclick="yakindaMesaj()">🧊 Soğuk İçecek</button>
     <button class="kategori-btn yakinda" onclick="yakindaMesaj()">🥨 Atıştırmalık</button>
-    <button class="kategori-btn yakinda" onclick="yakindaMesaj()">🥩 Et</button>
+    <button class="kategori-btn yakinda" onclick="yakindaMesaj()">🥩 Et Yemekleri</button>
     <button class="kategori-btn yakinda" onclick="yakindaMesaj()">🍗 Tavuk</button>
     <button class="kategori-btn aktif" onclick="kategoriSec(this, 'tatlilar')">🍰 Tatlılar</button>
-  </div>
-
-  <button id="btn-sol" onclick="oncekiUrun()">◀</button>
-  <button id="btn-sag" onclick="sonrakiUrun()">▶</button>
-  <button id="info-btn" onclick="infoToggle()">i</button>
-
-  <div id="urun-panel">
-    <div id="urun-adi">Chocolate Muffin</div>
-    <div id="urun-fiyat">45 ₺</div>
   </div>
 
   <div id="info-modal">
     <h2 id="modal-adi"></h2>
     <div class="fiyat" id="modal-fiyat"></div>
+    <div class="ayrac"></div>
     <div class="icerik-baslik">İçindekiler</div>
     <div class="icerik" id="modal-icerik"></div>
   </div>
@@ -246,11 +276,11 @@
   <script>
     const menu = {
       tatlilar: [
-        { id: 'ar-muffin', ad: 'Chocolate Muffin', fiyat: '45 ₺', icerik: 'Çikolata, un, yumurta, süt, tereyağı, kabartma tozu, şeker, kakao' },
-        { id: 'ar-cookie', ad: 'Cookie', fiyat: '35 ₺', icerik: 'Un, şeker, çikolata parçaları, tereyağı, yumurta, vanilya, tuz' },
-        { id: 'ar-donut-white', ad: 'Donut White', fiyat: '40 ₺', icerik: 'Un, şeker, süt, maya, tereyağı, beyaz glazür, pudra şekeri' },
-        { id: 'ar-donut-color', ad: 'Renkli Donut', fiyat: '45 ₺', icerik: 'Un, şeker, süt, maya, tereyağı, renkli glazür, şeker sprinkle' },
-        { id: 'ar-sakura', ad: 'Sakura Cake Roll', fiyat: '55 ₺', icerik: 'Pandispanya, çırpılmış krema, çilek, sakura esansı, pudra şekeri' }
+        { src: '#muffin',      ad: 'Chocolate Muffin', fiyat: '45 ₺', icerik: 'Çikolata, un, yumurta, süt, tereyağı, kabartma tozu, şeker, kakao' },
+        { src: '#cookie',      ad: 'Cookie',           fiyat: '35 ₺', icerik: 'Un, şeker, çikolata parçaları, tereyağı, yumurta, vanilya, tuz' },
+        { src: '#donut-white', ad: 'Donut White',      fiyat: '40 ₺', icerik: 'Un, şeker, süt, maya, tereyağı, beyaz glazür, pudra şekeri' },
+        { src: '#donut-color', ad: 'Renkli Donut',     fiyat: '45 ₺', icerik: 'Un, şeker, süt, maya, tereyağı, renkli glazür, şeker sprinkle' },
+        { src: '#sakura',      ad: 'Sakura Cake Roll', fiyat: '55 ₺', icerik: 'Pandispanya, çırpılmış krema, çilek, sakura esansı, pudra şekeri' }
       ]
     }
 
@@ -258,7 +288,9 @@
     let mevcutIndex = 0
     let arAktif = false
     let infoAcik = false
+    let mevcutModel = null
 
+    // Swipe
     let touchStartX = 0
     document.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX })
     document.addEventListener('touchend', e => {
@@ -270,18 +302,29 @@
       }
     })
 
-    function tumModellerGizle() {
-      Object.values(menu).flat().forEach(u => {
-        const el = document.getElementById(u.id)
-        if (el) el.setAttribute('visible', false)
-      })
+    function modelKaldir() {
+      if (mevcutModel && mevcutModel.parentNode) {
+        mevcutModel.parentNode.removeChild(mevcutModel)
+        mevcutModel = null
+      }
+    }
+
+    function modelEkle(urun) {
+      modelKaldir()
+      const container = document.getElementById('ar-container')
+      const el = document.createElement('a-gltf-model')
+      el.setAttribute('src', urun.src)
+      el.setAttribute('position', '0 0.15 0')
+      el.setAttribute('rotation', '-90 0 0')
+      el.setAttribute('scale', '0.08 0.08 0.08')
+      el.setAttribute('animation', 'property: rotation; from: -90 0 0; to: -90 360 0; loop: true; dur: 6000; easing: linear')
+      container.appendChild(el)
+      mevcutModel = el
     }
 
     function urunGoster(index) {
-      tumModellerGizle()
       const urun = menu[mevcutKategori][index]
-      const el = document.getElementById(urun.id)
-      if (el) el.setAttribute('visible', true)
+      modelEkle(urun)
       document.getElementById('urun-adi').textContent = urun.ad
       document.getElementById('urun-fiyat').textContent = urun.fiyat
       document.getElementById('modal-adi').textContent = urun.ad
@@ -320,13 +363,8 @@
 
     function infoToggle() {
       const modal = document.getElementById('info-modal')
-      if (infoAcik) {
-        modal.style.display = 'none'
-        infoAcik = false
-      } else {
-        modal.style.display = 'flex'
-        infoAcik = true
-      }
+      infoAcik = !infoAcik
+      modal.style.display = infoAcik ? 'flex' : 'none'
     }
 
     function uiGoster() {
@@ -358,7 +396,7 @@
 
     document.querySelector('[mindar-image-target]').addEventListener('targetLost', () => {
       arAktif = false
-      tumModellerGizle()
+      modelKaldir()
       uiGizle()
     })
   </script>
