@@ -275,14 +275,14 @@
 
   <script>
     const menu = {
-      tatlilar: [
-        { src: '#muffin',      ad: 'Chocolate Muffin', fiyat: '45 ₺', icerik: 'Çikolata, un, yumurta, süt, tereyağı, kabartma tozu, şeker, kakao' },
-        { src: '#cookie',      ad: 'Cookie',           fiyat: '35 ₺', icerik: 'Un, şeker, çikolata parçaları, tereyağı, yumurta, vanilya, tuz' },
-        { src: '#donut-white', ad: 'Donut White',      fiyat: '40 ₺', icerik: 'Un, şeker, süt, maya, tereyağı, beyaz glazür, pudra şekeri' },
-        { src: '#donut-color', ad: 'Renkli Donut',     fiyat: '45 ₺', icerik: 'Un, şeker, süt, maya, tereyağı, renkli glazür, şeker sprinkle' },
-        { src: '#sakura',      ad: 'Sakura Cake Roll', fiyat: '55 ₺', icerik: 'Pandispanya, çırpılmış krema, çilek, sakura esansı, pudra şekeri' }
-      ]
-    }
+  tatlilar: [
+    { dosya: './models/chocolate_muffin.glb', ad: 'Chocolate Muffin', fiyat: '45 ₺', icerik: 'Çikolata, un, yumurta, süt, tereyağı, kabartma tozu, şeker, kakao' },
+    { dosya: './models/cookie.glb', ad: 'Cookie', fiyat: '35 ₺', icerik: 'Un, şeker, çikolata parçaları, tereyağı, yumurta, vanilya, tuz' },
+    { dosya: './models/donut_white.glb', ad: 'Donut White', fiyat: '40 ₺', icerik: 'Un, şeker, süt, maya, tereyağı, beyaz glazür, pudra şekeri' },
+    { dosya: './models/donut_color.glb', ad: 'Renkli Donut', fiyat: '45 ₺', icerik: 'Un, şeker, süt, maya, tereyağı, renkli glazür, şeker sprinkle' },
+    { dosya: './models/sakura_cake_roll.glb', ad: 'Sakura Cake Roll', fiyat: '55 ₺', icerik: 'Pandispanya, çırpılmış krema, çilek, sakura esansı, pudra şekeri' }
+    ]
+  }
 
     let mevcutKategori = 'tatlilar'
     let mevcutIndex = 0
@@ -313,7 +313,7 @@
       modelKaldir()
       const container = document.getElementById('ar-container')
       const el = document.createElement('a-gltf-model')
-      el.setAttribute('src', urun.src)
+      el.setAttribute('src', urun.dosya)
       el.setAttribute('position', '0 0.15 0')
       el.setAttribute('rotation', '-90 0 0')
       el.setAttribute('scale', '0.08 0.08 0.08')
