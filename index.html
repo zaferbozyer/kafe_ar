@@ -181,7 +181,7 @@
 </head>
 <body>
 
-  <a-scene mindar-image="imageTargetSrc: ./targets.mind; autoStart: true; filterMinCF: 0.001; filterBeta: 0.001"
+  <a-scene mindar-image="imageTargetSrc: ./targets.mind; autoStart: true; filterMinCF: 0.0001; filterBeta: 0.0001; missTolerance: 10; warmupTolerance: 5"
            color-space="sRGB"
            renderer="colorManagement: true"
            vr-mode-ui="enabled: false"
@@ -194,35 +194,35 @@
       <!-- Muffin -->
       <a-entity id="c0" class="model-container" visible="false" rotation="90 0 0">
         <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
-          <a-gltf-model src="./models/chocolate_muffin.glb" scale="0.05 0.05 0.05" position="0 0 0"></a-gltf-model>
+          <a-gltf-model src="./models/chocolate_muffin.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
         </a-entity>
       </a-entity>
 
       <!-- Cookie -->
       <a-entity id="c1" class="model-container" visible="false" rotation="90 0 0">
         <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
-          <a-gltf-model src="./models/cookie.glb" scale="0.05 0.05 0.05" position="0 0 0"></a-gltf-model>
+          <a-gltf-model src="./models/cookie.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
         </a-entity>
       </a-entity>
 
       <!-- Donut White -->
       <a-entity id="c2" class="model-container" visible="false" rotation="90 0 0">
         <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
-          <a-gltf-model src="./models/donut_white.glb" scale="0.05 0.05 0.05" position="0 0 0"></a-gltf-model>
+          <a-gltf-model src="./models/donut_white.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
         </a-entity>
       </a-entity>
 
       <!-- Donut Color -->
       <a-entity id="c3" class="model-container" visible="false" rotation="90 0 0">
         <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
-          <a-gltf-model src="./models/donut_color.glb" scale="0.05 0.05 0.05" position="0 0 0"></a-gltf-model>
+          <a-gltf-model src="./models/donut_color.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
         </a-entity>
       </a-entity>
 
       <!-- Sakura Cake Roll -->
       <a-entity id="c4" class="model-container" visible="false" rotation="90 0 0">
         <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
-          <a-gltf-model src="./models/sakura_cake_roll.glb" scale="0.05 0.05 0.05" position="0 0 0"></a-gltf-model>
+          <a-gltf-model src="./models/sakura_cake_roll.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
         </a-entity>
       </a-entity>
 
