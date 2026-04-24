@@ -189,17 +189,18 @@
 
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-  <a-entity mindar-image-target="targetIndex: 0">
+<a-entity mindar-image-target="targetIndex: 0">
   <a-entity 
+    id="muffin-container"
     position="0 0 0" 
-    animation="property: rotation; to: 0 360 0; loop: true; dur: 8000; easing: linear">
+    rotation="90 0 0"
+    animation="property: rotation; from: 90 0 0; to: 90 0 360; loop: true; dur: 6000; easing: linear">
     
     <a-gltf-model 
       id="m0" 
-      src="./models/chocolate_muffin1.glb"
-      position="0 0 0"
-      rotation="90 0 0" 
-      scale="0.2 0.2 0.2">
+      src="./models/chocolate_muffin2.glb"
+      position="0 0 0" 
+      scale="0 0 0">
     </a-gltf-model>
     
   </a-entity>
