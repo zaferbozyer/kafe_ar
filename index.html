@@ -47,24 +47,66 @@
       padding: 3px 14px; border-radius: 20px; font-size: 13px; font-weight: 700;
     }
     #kategori-wrapper {
-      position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%);
-      width: 92vw; max-width: 420px;
-      background: rgba(0,0,0,0.6); border-radius: 20px; padding: 10px 8px;
-      display: none; z-index: 9999; backdrop-filter: blur(6px);
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 92vw;
+      max-width: 460px;
+      background: rgba(0,0,0,0.65);
+      border-radius: 20px;
+      padding: 10px 8px;
+      display: none;
+      z-index: 9999;
+      backdrop-filter: blur(6px);
       border: 1px solid rgba(255,255,255,0.15);
     }
     #kategori-menu {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; width: 100%;
-    }
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: 0 4px;
+    } 
+
+    #kategori-menu::-webkit-scrollbar { display: none; }
+
     .kategori-btn {
-      padding: 7px 2px; border-radius: 10px;
-      border: 1.5px solid rgba(255,255,255,0.4);
-      background: rgba(255,255,255,0.08); color: white;
-      font-size: 10px; cursor: pointer; text-align: center;
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.8);
+      font-size: 9px;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
+
+    .kategori-btn img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: 0.7;
+    }
+
     .kategori-btn.aktif {
-      background: #e8c96d; color: #1a1a2e; border-color: #e8c96d; font-weight: 600;
+      background: rgba(232,201,109,0.2);
+      border-color: #e8c96d;
+      color: #e8c96d;
+    }
+
+    .kategori-btn.aktif img {
+      filter: brightness(0) saturate(100%) invert(82%) sepia(30%) saturate(600%) hue-rotate(5deg);
+      opacity: 1;
     }
     #info-modal {
       position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
@@ -439,18 +481,71 @@
     <div id="urun-fiyat"></div>
   </div>
 
-  <div id="kategori-wrapper">
-    <div id="kategori-menu">
-      <button class="kategori-btn aktif" onclick="kategoriSec(this, 'kahvalti')">🍳 Kahvaltı</button>
-      <button class="kategori-btn" onclick="kategoriSec(this, 'atistirmalik')">🍟 Atıştırmalık</button>
-      <button class="kategori-btn" onclick="kategoriSec(this, 'burger')">🍔 Burger</button>
-      <button class="kategori-btn" onclick="kategoriSec(this, 'pizza')">🍕 Pizza</button>
-      <button class="kategori-btn" onclick="kategoriSec(this, 'et')">🥩 Et</button>
-      <button class="kategori-btn" onclick="kategoriSec(this, 'tavuk')">🍗 Tavuk</button>
-      <button class="kategori-btn" onclick="kategoriSec(this, 'tatlilar')">🍰 Tatlılar</button>
-      <button class="kategori-btn" onclick="kategoriSec(this, 'icecekler')">☕ İçecekler</button>
-    </div>
+<div id="kategori-wrapper">
+  <div id="kategori-menu">
+
+    <button class="kategori-btn aktif" onclick="kategoriSec(this, 'kahvalti')">
+      <img src="https://limashore.com/wp-content/uploads/2022/04/vfssf.png" alt="">
+      <span>Güne Başlarken</span>
+    </button>
+
+    <button class="kategori-btn" onclick="kategoriSec(this, 'tost')">
+      <img src="https://limashore.com/wp-content/uploads/2023/04/toas.png" alt="">
+      <span>Tost</span>
+    </button>
+
+    <button class="kategori-btn" onclick="kategoriSec(this, 'atistirmalik')">
+      <img src="https://limashore.com/wp-content/uploads/2022/04/patatess.png" alt="">
+      <span>Atıştırmalık</span>
+    </button>
+
+    <button class="kategori-btn" onclick="kategoriSec(this, 'salata')">
+      <img src="https://limashore.com/wp-content/uploads/2022/04/sadgyh.png" alt="">
+      <span>Salata</span>
+    </button>
+
+    <button class="kategori-btn" onclick="kategoriSec(this, 'hizli')">
+      <img src="https://limashore.com/wp-content/uploads/2022/04/hzlla.png" alt="">
+      <span>Hızlı Lezzetli</span>
+    </button>
+
+    <button class="kategori-btn" onclick="kategoriSec(this, 'burger')">
+      <img src="https://limashore.com/wp-content/uploads/2022/04/nb.png" alt="">
+      <span>Burger</span>
+    </button>
+
+    <button class="kategori-btn" onclick="kategoriSec(this, 'makarna')">
+      <img src="https://limashore.com/wp-content/uploads/2022/04/makar.png" alt="">
+      <span>Makarna</span>
+    </button>
+
+    <button class="kategori-btn" onclick="kategoriSec(this, 'pizza')">
+      <img src="https://limashore.com/wp-content/uploads/2022/04/pizzaaa.png" alt="">
+      <span>Pizza</span>
+    </button>
+
+    <button class="kategori-btn" onclick="kategoriSec(this, 'et')">
+      <img src="https://limashore.com/wp-content/uploads/2022/04/sdfrdf.png" alt="">
+      <span>Et</span>
+    </button>
+
+    <button class="kategori-btn" onclick="kategoriSec(this, 'tavuk')">
+      <img src="https://limashore.com/wp-content/uploads/2022/04/tavuuk.png" alt="">
+      <span>Tavuk</span>
+    </button>
+
+    <button class="kategori-btn" onclick="kategoriSec(this, 'tatlilar')">
+      <img src="https://limashore.com/wp-content/uploads/2022/04/tatl.png" alt="">
+      <span>Tatlılar</span>
+    </button>
+
+    <button class="kategori-btn" onclick="kategoriSec(this, 'icecekler')">
+      <img src="https://limashore.com/wp-content/uploads/2022/04/icci.png" alt="">
+      <span>İçecekler</span>
+    </button>
+
   </div>
+</div>
 
   <div id="info-modal">
     <h2 id="modal-adi"></h2>
