@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kafe AR Menü</title>
+  <title>Lima Shore AR Menü</title>
   <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
   <style>
@@ -85,10 +85,13 @@
       color: #e8c96d;
       padding: 6px 18px;
       border-radius: 20px;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 600;
       text-align: center;
       white-space: nowrap;
+      max-width: 70vw;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     #urun-fiyat {
@@ -100,31 +103,42 @@
       font-weight: 700;
     }
 
-    #kategori-menu {
+    #kategori-wrapper {
       position: fixed;
-      bottom: 24px;
-      left: 0;
-      right: 0;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 92vw;
+      max-width: 420px;
+      background: rgba(0,0,0,0.6);
+      border-radius: 20px;
+      padding: 10px 8px;
       display: none;
-      gap: 10px;
       z-index: 9999;
-      overflow-x: auto;
-      padding: 0 16px;
-      scrollbar-width: none;
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.15);
     }
 
-    #kategori-menu::-webkit-scrollbar { display: none; }
+    #kategori-menu {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 5px;
+      width: 100%;
+    }
 
     .kategori-btn {
-      padding: 10px 16px;
-      border-radius: 24px;
-      border: 2px solid rgba(255,255,255,0.6);
-      background: rgba(0,0,0,0.4);
+      padding: 7px 2px;
+      border-radius: 10px;
+      border: 1.5px solid rgba(255,255,255,0.4);
+      background: rgba(255,255,255,0.08);
       color: white;
-      font-size: 13px;
+      font-size: 10px;
       cursor: pointer;
+      text-align: center;
       white-space: nowrap;
-      flex-shrink: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
     }
 
     .kategori-btn.aktif {
@@ -134,33 +148,30 @@
       font-weight: 600;
     }
 
-    .kategori-btn.yakinda {
-      opacity: 0.45;
-      cursor: not-allowed;
-    }
-
     #info-modal {
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: rgba(20,20,40,0.96);
+      background: rgba(20,20,40,0.97);
       border: 2px solid #e8c96d;
       border-radius: 20px;
-      padding: 28px 24px;
+      padding: 24px 20px;
       width: 85vw;
-      max-width: 340px;
+      max-width: 360px;
       z-index: 99999;
       display: none;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
+      max-height: 80vh;
+      overflow-y: auto;
     }
 
-    #info-modal h2 { color: #e8c96d; font-size: 19px; text-align: center; font-weight: 600; }
-    #info-modal .fiyat { color: white; font-size: 24px; font-weight: 700; text-align: center; }
+    #info-modal h2 { color: #e8c96d; font-size: 17px; text-align: center; font-weight: 600; }
+    #info-modal .fiyat { color: white; font-size: 22px; font-weight: 700; text-align: center; }
     #info-modal .ayrac { height: 1px; background: rgba(232,201,109,0.3); }
-    #info-modal .icerik-baslik { color: #e8c96d; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; }
-    #info-modal .icerik { color: rgba(255,255,255,0.85); font-size: 14px; line-height: 1.7; }
+    #info-modal .icerik-baslik { color: #e8c96d; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; }
+    #info-modal .icerik { color: rgba(255,255,255,0.85); font-size: 13px; line-height: 1.7; }
 
     #hedef-mesaj {
       position: fixed;
@@ -190,42 +201,11 @@
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
     <a-entity mindar-image-target="targetIndex: 0">
-
-      <!-- Muffin -->
       <a-entity id="c0" class="model-container" visible="false" rotation="90 0 0">
         <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
           <a-gltf-model src="./models/chocolate_muffin.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
         </a-entity>
       </a-entity>
-
-      <!-- Cookie -->
-      <a-entity id="c1" class="model-container" visible="false" rotation="90 0 0">
-        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
-          <a-gltf-model src="./models/cookie.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
-        </a-entity>
-      </a-entity>
-
-      <!-- Donut White -->
-      <a-entity id="c2" class="model-container" visible="false" rotation="90 0 0">
-        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
-          <a-gltf-model src="./models/donut_white.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
-        </a-entity>
-      </a-entity>
-
-      <!-- Donut Color -->
-      <a-entity id="c3" class="model-container" visible="false" rotation="90 0 0">
-        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
-          <a-gltf-model src="./models/donut_color.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
-        </a-entity>
-      </a-entity>
-
-      <!-- Sakura Cake Roll -->
-      <a-entity id="c4" class="model-container" visible="false" rotation="90 0 0">
-        <a-entity animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 15000; easing: linear">
-          <a-gltf-model src="./models/sakura_cake_roll.glb" scale="0.03 0.03 0.03" position="0 0 0"></a-gltf-model>
-        </a-entity>
-      </a-entity>
-
     </a-entity>
 
   </a-scene>
@@ -239,13 +219,17 @@
     <div id="urun-fiyat"></div>
   </div>
 
-  <div id="kategori-menu">
-    <button class="kategori-btn yakinda" onclick="yakindaMesaj()">☕ Sıcak İçecek</button>
-    <button class="kategori-btn yakinda" onclick="yakindaMesaj()">🧊 Soğuk İçecek</button>
-    <button class="kategori-btn yakinda" onclick="yakindaMesaj()">🥨 Atıştırmalık</button>
-    <button class="kategori-btn yakinda" onclick="yakindaMesaj()">🥩 Et Yemekleri</button>
-    <button class="kategori-btn yakinda" onclick="yakindaMesaj()">🍗 Tavuk</button>
-    <button class="kategori-btn aktif" onclick="kategoriSec(this, 'tatlilar')">🍰 Tatlılar</button>
+  <div id="kategori-wrapper">
+    <div id="kategori-menu">
+      <button class="kategori-btn aktif" onclick="kategoriSec(this, 'kahvalti')">🍳 Kahvaltı</button>
+      <button class="kategori-btn" onclick="kategoriSec(this, 'atistirmalik')">🍟 Atıştırmalık</button>
+      <button class="kategori-btn" onclick="kategoriSec(this, 'burger')">🍔 Burger</button>
+      <button class="kategori-btn" onclick="kategoriSec(this, 'pizza')">🍕 Pizza</button>
+      <button class="kategori-btn" onclick="kategoriSec(this, 'et')">🥩 Et</button>
+      <button class="kategori-btn" onclick="kategoriSec(this, 'tavuk')">🍗 Tavuk</button>
+      <button class="kategori-btn" onclick="kategoriSec(this, 'tatlilar')">🍰 Tatlılar</button>
+      <button class="kategori-btn" onclick="kategoriSec(this, 'icecekler')">☕ İçecekler</button>
+    </div>
   </div>
 
   <div id="info-modal">
@@ -260,26 +244,111 @@
 
   <script>
     const menu = {
+      kahvalti: [
+        { ad: 'Lima Serpme Kahvaltı', fiyat: '650 ₺', icerik: 'Sahanda yumurta, 5 çeşit peynir, zeytin, salatalık, domates, yeşillik, acuka, bal, tereyağı, çikolata, reçel, parmak patates, pişi, biberli ekmek, çay' },
+        { ad: 'Senin Kahvaltın', fiyat: '550 ₺', icerik: 'Haşlanmış yumurta, 5 çeşit peynir, zeytin tabağı, domates, salatalık, bal, tereyağı, sürk, çilek reçeli, biberli ekmek, 2 adet çay' },
+        { ad: 'Peynir Tabağı', fiyat: '240 ₺', icerik: '5 çeşit peynir' },
+        { ad: 'Menemen', fiyat: '200 ₺', icerik: 'Domates, biber, yumurta, baharat' },
+        { ad: 'Sucuklu Yumurta', fiyat: '220 ₺', icerik: 'Sucuk, yumurta' },
+        { ad: 'Sebzeli Omlet', fiyat: '180 ₺', icerik: 'Yumurta, sebze karışımı' },
+        { ad: 'Sucuk Tava', fiyat: '250 ₺', icerik: 'Dana sucuk' },
+        { ad: 'Soslu Sosis', fiyat: '200 ₺', icerik: 'Sosis, özel sos' },
+      ],
+      atistirmalik: [
+        { ad: 'Kombo Tabağı', fiyat: '460 ₺', icerik: 'Parmak patates, soğan halkası, çıtır tavuk, sosis, stick mozarella, sebzeli muska, Lima özel sos (2-3 kişilik)' },
+        { ad: 'Cheddarlı Patates', fiyat: '370 ₺', icerik: 'Parmak patates, cheddar sos' },
+        { ad: 'Parmak Patates', fiyat: '280 ₺', icerik: 'Çıtır parmak patates' },
+        { ad: 'Lima Özel Tost', fiyat: '390 ₺', icerik: 'Sucuk, sosis, mantar, kırmızı biber, alman turşusu' },
+        { ad: 'Karışık Tost', fiyat: '390 ₺', icerik: 'Sucuk, kaşar, domates, alman turşusu, ketçap' },
+        { ad: 'Sebzeli Tost', fiyat: '360 ₺', icerik: 'Yeşil biber, kırmızı biber, mısır, mantar, siyah zeytin, kaşar' },
+      ],
+      burger: [
+        { ad: 'Focus Beef Burger', fiyat: '440 ₺', icerik: '120gr dana burger, karamelize soğan, kibrit patates, dana jambon, trüflü mayonez, parmak patates' },
+        { ad: 'BBQ Beef Burger', fiyat: '440 ₺', icerik: '120gr dana burger, karamelize soğan, domates, turşu, parmak patates' },
+        { ad: 'Cheese Beef Burger', fiyat: '440 ₺', icerik: '120gr dana burger, cheddar peyniri, dana jambon, karamelize soğan, parmak patates' },
+        { ad: 'Klasik Et Burger', fiyat: '420 ₺', icerik: '120gr dana burger, marul, domates, turşu, ketçap, mayonez, parmak patates' },
+        { ad: 'Lima Trüffle Chicken Burger', fiyat: '400 ₺', icerik: '160gr tavuk burger, karamelize soğan, kibrit patates, turşu, trüflü mayonez, parmak patates' },
+        { ad: 'BBQ Chicken Burger', fiyat: '400 ₺', icerik: '160gr tavuk burger, barbekü sos, cheddar peyniri, marul, turşu, parmak patates' },
+        { ad: 'Chilly Honey Chicken Burger', fiyat: '400 ₺', icerik: '160gr tavuk burger, sweet chili sos, cheddar peyniri, marul, turşu, parmak patates' },
+      ],
+      pizza: [
+        { ad: 'Klasik Pizza', fiyat: '580 ₺', icerik: 'Sucuk, sosis, salam, mantar, mısır, yeşil biber, kırmızı biber, siyah zeytin, pizza sos' },
+        { ad: 'Margarita', fiyat: '560 ₺', icerik: 'Mozzarella peynir, pesto sos, cherry domates' },
+        { ad: 'Gamer Pizza', fiyat: '580 ₺', icerik: 'Sucuk, sosis, salam, mısır' },
+        { ad: 'Tantuni Pizza', fiyat: '720 ₺', icerik: 'Dana bonfile, yeşil biber, kırmızı biber, maydanoz' },
+        { ad: 'Ton Balıklı Pizza', fiyat: '580 ₺', icerik: 'Ton balığı, kırmızı biber, yeşil biber, mısır' },
+        { ad: 'BBQ Tavuklu Pizza', fiyat: '640 ₺', icerik: '180gr tavuk, mozzarella, kırmızı biber, yeşil biber, barbekü sos' },
+      ],
+      et: [
+        { ad: 'Dana Fajita', fiyat: '780 ₺', icerik: 'Dana bonfile' },
+        { ad: 'Dana Lokum Bonfile', fiyat: '780 ₺', icerik: 'Patates püresi yatağında, sebze garnitür eşliğinde' },
+        { ad: 'Mexican Beef 🌶', fiyat: '780 ₺', icerik: 'Dana bonfile, Meksika fasülyesi, mantar, soğan, kırmızı biber, acı sos, krema, demi glace sos, patates püresi' },
+        { ad: 'Kasap Köfte', fiyat: '640 ₺', icerik: 'Pirinç pilavı, parmak patates eşliğinde' },
+        { ad: 'Diane Beef', fiyat: '780 ₺', icerik: 'Dana bonfile, dana jambon, mantar, soğan, yeşil biber, krema, demi glace sos, patates püresi' },
+        { ad: 'Beef Stroganoff', fiyat: '780 ₺', icerik: 'Jülyen dana bonfile, mantar, soğan, salatalık turşusu, krema, demi glace sos, patates püresi' },
+      ],
+      tavuk: [
+        { ad: 'Tavuk Tornado 🌶', fiyat: '580 ₺', icerik: 'Izgara tavuk, mozzarella, soğan, mantar, krema, acı sos' },
+        { ad: 'Cajun Soslu Tavuk', fiyat: '580 ₺', icerik: 'Makarna, mix salata eşliğinde' },
+        { ad: 'Tavuk Fajita', fiyat: '580 ₺', icerik: 'Izgara tavuk, biber, soğan, özel sos' },
+        { ad: 'Taze Kekikli Tavuk Izgara', fiyat: '580 ₺', icerik: 'Parmak patates, mix salata eşliğinde' },
+        { ad: 'Snitzel', fiyat: '580 ₺', icerik: 'Parmak patates ve Lima özel sos eşliğinde' },
+        { ad: 'Köri Soslu Tavuk', fiyat: '580 ₺', icerik: 'Makarna, mix salata eşliğinde' },
+        { ad: 'Kremalı Mantarlı Tavuk', fiyat: '580 ₺', icerik: 'Makarna, mix salata eşliğinde' },
+        { ad: 'Sriracha Soslu Tavuk 🌶', fiyat: '580 ₺', icerik: 'Makarna, mix salata eşliğinde' },
+      ],
       tatlilar: [
-        { containerId: 'c0', ad: 'Chocolate Muffin', fiyat: '45 ₺', icerik: 'Çikolata, un, yumurta, süt, tereyağı, kabartma tozu, şeker, kakao' },
-        { containerId: 'c1', ad: 'Cookie',           fiyat: '35 ₺', icerik: 'Un, şeker, çikolata parçaları, tereyağı, yumurta, vanilya, tuz' },
-        { containerId: 'c2', ad: 'Donut White',      fiyat: '40 ₺', icerik: 'Un, şeker, süt, maya, tereyağı, beyaz glazür, pudra şekeri' },
-        { containerId: 'c3', ad: 'Renkli Donut',     fiyat: '59 ₺', icerik: 'Un, şeker, süt, maya, tereyağı, renkli glazür, şeker sprinkle' },
-        { containerId: 'c4', ad: 'Sakura Cake Roll', fiyat: '55 ₺', icerik: 'Pandispanya, çırpılmış krema, çilek, sakura esansı, pudra şekeri' }
+        { ad: 'Waffle', fiyat: '460 ₺', icerik: 'Muz, çilek, kavrulmuş fıstık, toz fıstık' },
+        { ad: 'Black White Waffle', fiyat: '480 ₺', icerik: 'Muz, çilek, ananas, kavrulmuş fıstık, toz fıstık' },
+        { ad: 'Suffle', fiyat: '380 ₺', icerik: 'Dondurma ile servis edilir' },
+        { ad: 'Profiterol', fiyat: '320 ₺', icerik: 'Choux hamuru, çikolata sos, dondurma' },
+        { ad: 'Tiramisu', fiyat: '320 ₺', icerik: 'Mascarpone, kahve, kakao, bisküvi' },
+        { ad: 'Trileçe', fiyat: '300 ₺', icerik: 'Üç sütlü ıslak pasta' },
+        { ad: 'San Sebastian', fiyat: '370 ₺', icerik: 'Çikolata ile servis edilir' },
+        { ad: 'Lotus Cheesecake', fiyat: '350 ₺', icerik: 'Lotus bisküvi, krem peynir, lotus sos' },
+        { ad: 'Brownie', fiyat: '320 ₺', icerik: 'Dondurmalı, çikolatalı kek' },
+        { ad: 'Dondurma Porsiyon', fiyat: '360 ₺', icerik: '4 top dondurma — sade, çikolata, çilek, karamel ve daha fazlası' },
+      ],
+      icecekler: [
+        { ad: 'Espresso', fiyat: '130 ₺', icerik: 'Saf espresso' },
+        { ad: 'Cappuccino', fiyat: '200 ₺', icerik: 'Espresso, buharla ısıtılmış süt, süt köpüğü' },
+        { ad: 'Mocha', fiyat: '230 ₺', icerik: 'Espresso, çikolata sosu, süt' },
+        { ad: 'Caffe Latte', fiyat: '230 ₺', icerik: 'Espresso, süt kreması' },
+        { ad: 'Ice Latte', fiyat: '230 ₺', icerik: 'Espresso, soğuk süt, buz' },
+        { ad: 'Frappuccino', fiyat: '230 ₺', icerik: 'Buzlu kahve, süt, şurup' },
+        { ad: 'Chocolate Milkshake', fiyat: '240 ₺', icerik: 'Çikolatalı dondurma, süt' },
+        { ad: 'Limonata', fiyat: '200 ₺', icerik: 'Taze limon, su, şeker' },
+        { ad: 'Türk Kahvesi', fiyat: '120 ₺', icerik: 'Geleneksel Türk kahvesi' },
+        { ad: 'Sıcak Çikolata', fiyat: '230 ₺', icerik: 'Bitter çikolata, sıcak süt' },
+        { ad: 'Ayran', fiyat: '100 ₺', icerik: 'Yoğurt, su, tuz' },
+        { ad: 'Çay', fiyat: '60 ₺', icerik: 'Türk çayı' },
       ]
     }
 
-    let mevcutKategori = 'tatlilar'
+    let mevcutKategori = 'kahvalti'
     let mevcutIndex = 0
     let arAktif = false
     let infoAcik = false
-
     let touchStartX = 0
-    document.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX })
+    let touchStartY = 0
+    let swipeHedef = null
+
+    document.addEventListener('touchstart', e => {
+      touchStartX = e.touches[0].clientX
+      touchStartY = e.touches[0].clientY
+      swipeHedef = e.target
+    })
+
     document.addEventListener('touchend', e => {
       if (!arAktif || infoAcik) return
-      const diff = touchStartX - e.changedTouches[0].clientX
-      if (Math.abs(diff) > 50) diff > 0 ? sonrakiUrun() : oncekiUrun()
+      const wrapper = document.getElementById('kategori-wrapper')
+      if (wrapper.contains(swipeHedef)) return
+      const diffX = touchStartX - e.changedTouches[0].clientX
+      const diffY = Math.abs(touchStartY - e.changedTouches[0].clientY)
+      if (Math.abs(diffX) > 50 && diffY < 60) {
+        if (diffX > 0) sonrakiUrun()
+        else oncekiUrun()
+      }
     })
 
     function tumModellerGizle() {
@@ -290,9 +359,11 @@
 
     function urunGoster(index) {
       tumModellerGizle()
+      // Şimdilik hepsi muffin modeli
+      const c0 = document.getElementById('c0')
+      if (c0) c0.setAttribute('visible', true)
+
       const urun = menu[mevcutKategori][index]
-      const el = document.getElementById(urun.containerId)
-      if (el) el.setAttribute('visible', true)
       document.getElementById('urun-adi').textContent = urun.ad
       document.getElementById('urun-fiyat').textContent = urun.fiyat
       document.getElementById('modal-adi').textContent = urun.ad
@@ -319,16 +390,6 @@
       urunGoster(0)
     }
 
-    function yakindaMesaj() {
-      const mesaj = document.getElementById('hedef-mesaj')
-      mesaj.textContent = '🚧 Bu kategori yakında eklenecek!'
-      mesaj.style.display = 'block'
-      setTimeout(() => {
-        if (arAktif) mesaj.style.display = 'none'
-        else mesaj.textContent = '📷 Kamerayı masa işaretçisine tutun'
-      }, 2000)
-    }
-
     function infoToggle() {
       const modal = document.getElementById('info-modal')
       infoAcik = !infoAcik
@@ -336,7 +397,7 @@
     }
 
     function uiGoster() {
-      document.getElementById('kategori-menu').style.display = 'flex'
+      document.getElementById('kategori-wrapper').style.display = 'block'
       document.getElementById('urun-panel').style.display = 'flex'
       document.getElementById('btn-sol').style.display = 'flex'
       document.getElementById('btn-sag').style.display = 'flex'
@@ -345,7 +406,7 @@
     }
 
     function uiGizle() {
-      document.getElementById('kategori-menu').style.display = 'none'
+      document.getElementById('kategori-wrapper').style.display = 'none'
       document.getElementById('urun-panel').style.display = 'none'
       document.getElementById('btn-sol').style.display = 'none'
       document.getElementById('btn-sag').style.display = 'none'
